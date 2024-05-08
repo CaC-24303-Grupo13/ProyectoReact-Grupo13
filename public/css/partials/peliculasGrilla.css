@@ -1,0 +1,37 @@
+
+/* Desarrollo de estilos para el Componente Grilla de Peliculas */
+
+.peliculasGrilla__container {
+    border: solid 2px red;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.peliculasGrilla__ItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.peliculasGrilla__loading,
+.peliculasGrilla__server-down,
+.peliculasGrilla__server-error {
+    border: solid 2px blue;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.peliculasGrilla__loading-img{
+    height: 5rem;
+    width: 5rem;
+}
+
+.peliculasGrilla__server-down-img{
+    height: 35rem;
+    width: 52rem;
+}
+
+.peliculasGrilla__server-error-img{
+    height: 22rem;
+    width: 45rem;
+}

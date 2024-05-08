@@ -1,0 +1,24 @@
+
+/* Desarrollo de estilos para el Footer */
+
+.Footer__Container{
+    border: solid 2px darkblue;
+    padding: 0 1rem 1rem 1rem;
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.Footer__Navbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+
+.Footer__Navbar_Button{
+    border: solid 1px darkgray;
+    padding: 0 1rem;
+}
+
+

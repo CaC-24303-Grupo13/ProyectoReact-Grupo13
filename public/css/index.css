@@ -1,0 +1,25 @@
+
+/* Link Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&family=Raleway:wght@100;300;400;500;600;700;900&display=swap');
+/* Nota, cambiar y elegir las fuentes */
+
+
+/* Miscelaneous */
+@import url(./misc/vars.css);
+@import url(./misc/normalize.css);
+
+
+/* Partials Components */
+@import url(./partials/header.css);
+@import url(./partials/footer.css);
+@import url(./partials/login.css);
+@import url(./partials/register.css);
+@import url(./partials/peliculasGrilla.css);
+@import url(./partials/peliculasCard.css);
+@import url(./partials/peliculasDetalle.css);
+
+
+/* Pages */
+@import url(./pages/homePage.css);
+@import url(./pages/registerPage.css);
+@import url(./pages/detailsPage.css);

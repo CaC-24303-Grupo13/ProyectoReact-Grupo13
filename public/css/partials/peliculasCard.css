@@ -1,0 +1,17 @@
+
+/* Desarrollo de estilos para el Componente Card de Pelicula */
+
+.peliculasCard__container {
+    border: solid 2px blue;
+    padding: 0 1rem 1rem 1rem;
+    width: 200px;
+}
+
+
+.peliculasCard__poster-img{
+    height: 25rem;
+    width: 18rem;
+}
+
+
+

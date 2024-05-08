@@ -1,0 +1,64 @@
+
+/* Desarrollo de estilos para el Componente Grilla de Peliculas */
+
+.peliculasDetalle__container {
+    border: solid 2px blue;
+    padding: 0 1rem 1rem 1rem;
+}
+
+
+.peliculasDetalle__loading,
+.peliculasGrilla__server-down,
+.peliculasGrilla__server-error {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.peliculasDetalle__loading-img{
+    height: 5rem;
+    width: 5rem;
+}
+
+.peliculasDetalle__flex{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.peliculasDetalle__poster-img{
+    height: 40rem;
+    width: 25rem;
+}
+
+
+
+
+
+
+.peliculasGrilla__ItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.peliculasGrilla__loading,
+.peliculasGrilla__server-down,
+.peliculasGrilla__server-error {
+    border: solid 2px blue;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.peliculasGrilla__server-down-img{
+    height: 35rem;
+    width: 52rem;
+}
+
+.peliculasGrilla__server-error-img{
+    height: 22rem;
+    width: 45rem;
+}

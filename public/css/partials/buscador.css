@@ -1,0 +1,15 @@
+
+/* Desarrollo de estilos para el Componente Buscador */
+
+.buscador__container {
+    border: solid 2px coral;
+    padding: 0 1rem 1rem 1rem;
+    margin-top: 1rem;
+    margin: 0.5rem 0;
+}
+
+.buscador__form {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}

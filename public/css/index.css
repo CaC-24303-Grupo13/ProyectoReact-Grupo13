@@ -14,12 +14,16 @@
 @import url(./partials/footer.css);
 @import url(./partials/login.css);
 @import url(./partials/register.css);
+@import url(./partials/welcome.css);
+@import url(./partials/buscador.css);
 @import url(./partials/peliculasGrilla.css);
 @import url(./partials/peliculasCard.css);
 @import url(./partials/peliculasDetalle.css);
+@import url(./partials/paginador.css);
 
 
 /* Pages */
 @import url(./pages/homePage.css);
 @import url(./pages/registerPage.css);
+@import url(./pages/listPage.css);
 @import url(./pages/detailsPage.css);

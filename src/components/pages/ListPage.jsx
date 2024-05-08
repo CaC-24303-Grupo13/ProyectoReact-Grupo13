@@ -1,4 +1,5 @@
 import { Header } from "../partials/Header"
+import { Buscador } from "../partials/Buscador"
 import { PeliculasGrilla } from "../partials/PeliculasGrilla"
 import { Footer } from "../partials/Footer"
 
@@ -6,19 +7,19 @@ export const ListPage = ({endpointRUTA}) => {
  
   return (
 
-        // Esta es la vista principal que recibe al usuario al entrar al sitio, la que junta todos los componentes que arman una vista
-
-      <div  className="homePage__container">
+      <div  className="listPage__container">
 
         {/* Leyenda que indica que componente es, Esto se BORRA */}
         <span style={{fontSize: '.8rem', color: 'green'}}>VERDE: Vista Tendencia Diaria Page</span>
         
-        <Header></Header>
-        
+          <Header></Header>
+          
+          <Buscador></Buscador>
 
-        <PeliculasGrilla endpointGRILLA={endpointRUTA}></PeliculasGrilla>
+          {/* Aqui recibimos el endpoin desde la Ruta y se lo pasamos a la Grilla */}
+          <PeliculasGrilla endpointGRILLA={endpointRUTA}></PeliculasGrilla>
 
-        <Footer></Footer>
+          <Footer></Footer>
 
       </div>
   )

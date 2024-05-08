@@ -1,7 +1,7 @@
 
-/* Desarrollo de estilos para el Header */
+/* Desarrollo de estilos para el Componente Header */
 
-.Header__Container{
+.header__container{
     border: solid 2px darkgray;
     padding: 0 1rem 1rem 1rem;
     margin: 0.5rem 0;
@@ -9,19 +9,19 @@
 }
 
 
-.Header__UserLogedCard{
+.header__userLogedCard{
     border: solid 2px crimson;
     position: absolute;
     top: 1rem;
     right: 1rem;
 }
 
-.Header__Tittle{
+.header__title{
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.Header__Navbar{
+.header__navbar{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     padding: 0;
 }
 
-.Header__Navbar_Button{
+.header__navbar_button{
     border: solid 1px darkgray;
     padding: 0 1rem;
 }

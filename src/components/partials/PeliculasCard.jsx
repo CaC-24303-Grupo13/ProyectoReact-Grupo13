@@ -13,8 +13,8 @@ export const PeliculasCard = ({cardItemData}) => {
         <p>Puntuacion: {(cardItemData.vote_average).toFixed(1)}</p>
         
         {cardItemData.poster_path != null
-            ? <img className="peliculasCard__poster-img" src={`https://image.tmdb.org/t/p/w500/${cardItemData.poster_path}`} alt="Imagen Pelicula"/>
-            : <img className="peliculasCard__poster-img" src={`./images/emptyPoster.svg`} alt="Imagen Pelicula"/>
+            ? <img className="peliculasCard__poster-img" src={`https://image.tmdb.org/t/p/w500${cardItemData.poster_path}`} alt="Imagen Pelicula"/>
+            : <img className="peliculasCard__poster-img" src={`/images/emptyPoster.svg`} alt="Imagen Pelicula"/>
         }
     
     </div>

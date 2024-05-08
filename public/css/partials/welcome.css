@@ -1,0 +1,9 @@
+
+/* Desarrollo de estilos para el Componente Welcome */
+
+.welcome__container{
+    border: solid 2px rgb(241, 151, 7);
+    width: 60rem;
+    margin: auto;
+    padding: 1rem;
+}

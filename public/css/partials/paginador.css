@@ -1,0 +1,50 @@
+
+/* Desarrollo de estilos para el Componente Paginador */
+
+.paginador__container {
+    border: solid 2px magenta;
+    padding: 0 1rem 1rem 1rem;
+    margin-top: 1rem;
+}
+
+
+.paginador__buttonsContainer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.paginador__info {
+    font-size: 0.8rem;
+    color: magenta;
+}
+
+
+.paginador__page-info {
+    border: solid 1px magenta;
+    height: 3rem;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem 0 1rem;
+}
+
+.paginador__nav-button,
+.paginador__number-button,
+.paginador__goto-button {
+    border: solid 1px magenta;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+}
+
+.paginador__goto {
+    display: flex;
+    gap: 1rem;
+}
+
+.paginador__goto-input{
+    border: solid 1px magenta;
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.5rem;
+    padding: 0 .9rem;
+}

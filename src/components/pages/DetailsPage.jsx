@@ -6,18 +6,16 @@ export const DetailsPage = () => {
   
   return (
 
-        // Esta es la vista principal que recibe al usuario al entrar al sitio, la que junta todos los componentes que arman una vista
-
       <div  className="detailsPage__container">
 
         {/* Leyenda que indica que componente es, Esto se BORRA */}
         <span style={{fontSize: '.8rem', color: 'green'}}>VERDE: Vista Detalles de 1 Pelicula</span>
         
-        <Header></Header>
-        
-        <PeliculasDetalle></PeliculasDetalle>
+          <Header></Header>
+          
+          <PeliculasDetalle></PeliculasDetalle>
 
-        <Footer></Footer>
+          <Footer></Footer>
 
       </div>
   )

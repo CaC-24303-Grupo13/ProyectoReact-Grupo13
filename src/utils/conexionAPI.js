@@ -22,7 +22,8 @@ export const getDataMovieDB = async (endpointURL, pagenumber, language, searchVa
             url = `${import.meta.env.VITE_MOVIEDB_API_BASE_URL}/${endpointURL}?language=${language}&page=${pagenumber}`;                        //  URL Dinamica
         }
 
-        
+    
+    // parametros de acceso para consultar a la api
     const options = {
         method: 'GET',
         headers: {
@@ -31,43 +32,42 @@ export const getDataMovieDB = async (endpointURL, pagenumber, language, searchVa
         }
     };
     
-    try {
+
+    try {    
         
+        const apiResponse = await axios.get(url, options)
+        const fetchData = apiResponse.data
         
-        const response = await axios.get(url, options)
-        const fetchData = response.data
-        
-        // Forzamos demora para retornar la respuesta de la API, normalmente esto no se haria, ya que no queremos ninguna demora (Es solo para ver el "cargando...")
+        // Forzamos una demora para retornar la respuesta de la API  (Es solo para ver el "cargando...")
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        //console.log(fetchData);      // Habilitar este console log para hacer los estilos asi se ve que info recibimos y podemos usar
+        //console.log(fetchData);      // Habilitar este console log para hacer los estilos asi se ve el JSON de que info recibimos y podemos usar
 
-        if (fetchData.success == false) {
+        return {
+            data: fetchData,
+            isLoadingApiData: false,
+            isWorkingApi: true,
+            movieDBdown: false
+        }
+    
+    } catch (error) {
+
+        if (error.code == "ERR_BAD_REQUEST"){
+            console.log("Mala Ruta");
+            return {
+                data: [],
+                isLoadingApiData: false,
+                isWorkingApi: false,        //  Aca ver porque deberia ser TRUE el valor a pasar, ya que si la ruta es mala la API esta funcional pero no tenemos respuesta buena, por lo cual en pantalla renderizamos condicionalmente meme de los simpsons con el server
+                movieDBdown: false
+            }
+        }else if (error.code == "ERR_NETWORK"){
+            console.log("Server Caido");
             return {
                 data: [],
                 isLoadingApiData: false,
                 isWorkingApi: false,
-                movieDBdown: false
+                movieDBdown: true
             }
-        } else {
-            return {
-                data: fetchData,
-                isLoadingApiData: false,
-                isWorkingApi: true,
-                movieDBdown: false
-            }
-        }
-    
-        
-    } catch (error) {
-        
-        // Nota: Aqui ver como manejar el error enviando algun parametro para utilizar un renderizado condicional y mostrar pantalla de error
-        console.error('Error al obtener datos!', error);
-        return {
-            data: [],
-            isLoadingApiData: false,
-            isWorkingApi: false,
-            movieDBdown: true
         }
 
     }

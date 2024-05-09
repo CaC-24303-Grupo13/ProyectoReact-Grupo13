@@ -2,6 +2,29 @@
 /* Desarrollo de estilos para la vista de la Home */
 
 .homePage__container{
-    border: solid 2px green;
+    
+    padding: 0 1rem 1rem 1rem; 
+    background-image: url(../../images/oled-4k.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.pageLogin__container{
+    
     padding: 0 1rem 1rem 1rem;
+
+}
+.pageLogin_titulo{
+    text-align: center;     
+    color: rgb(255, 0, 0);
+   font-size:36px;
+    text-transform: uppercase; 
+    /*text-shadow: 0 0 10px rgb(0, 0, 0);*/
+    
+}
+.pageLogin_p{
+    text-align: center;    
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+    padding-bottom: 20px;
+    
 }

@@ -2,7 +2,7 @@
 /* Desarrollo de estilos para el Componente Header */
 
 .header__container{
-    border: solid 2px darkgray;
+    
     padding: 0 1rem 1rem 1rem;
     margin: 0.5rem 0;
     position: relative;
@@ -19,19 +19,36 @@
 .header__title{
     text-align: center;
     margin-bottom: 2rem;
+    color: red;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 3); 
 }
 
 .header__navbar{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     list-style: none;
     padding: 0;
+    
 }
 
 .header__navbar_button{
-    border: solid 1px darkgray;
-    padding: 0 1rem;
+    flex-shrink: 1; 
+    margin-left: 10px;
+    padding: 10px 20px;
+    
+    border-radius: 25px; 
+    background-color: #ffcc00;     
+    color: white; 
+    
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgb(251, 227, 8);
 }
-
+.header__navbar_button:hover {
+    background-color: #ef9d46; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+}
 

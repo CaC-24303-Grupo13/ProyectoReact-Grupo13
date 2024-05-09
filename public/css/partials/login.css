@@ -2,10 +2,19 @@
 /* Desarrollo de estilos para el Componente Login */
 
 .login__container{
-    border: solid 2px rgb(241, 151, 7);
-    width: 30rem;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 139, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    max-width: 300px;
+    min-width: 200px;
+    width: 80%;
     margin: auto;
-    padding: 1rem;
+    padding: 1rem; 
+    color: white; 
+}
+.login__container span {    
+    padding: 0.5rem; 
+    border-radius: 5px;
 }
 
 .login__form {
@@ -17,10 +26,13 @@
 
 .login__form-inputfield{
     width: 98%;
+    height: 30px;
+    border-radius: 5px; 
+    border: none;
+    
 }
 
 .login__register-link{
     display: flex;
-    gap: .5rem;
-    justify-content: center;
+    gap: .5rem;    
 }

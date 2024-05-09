@@ -19,9 +19,7 @@ export const Header = () => {
 
     <div className="header__container">
         
-        {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: '#4c4c4c'}}>GRIS: Componente Header</span>
-
+  
 
         {/* especie de ventana modal o card que se muestra al logearse el usuario  (tambien podriamos incluirlo en el header, ver ideas) */}
         {logedUser

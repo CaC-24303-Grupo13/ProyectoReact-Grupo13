@@ -35,7 +35,7 @@ export default function PeliculasDetalle() {
     <div className="peliculasDetalle__container">
 
         {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'blue'}}>AZUL: Componente Detalles de Pelicula</span>
+        {/* <span style={{fontSize: '.8rem', color: 'blue'}}>AZUL: Componente Detalles de Pelicula</span> */}
        
         { isLoading == true     // evaluamos si "isLoading" es true, como asi lo establecimos se mostrara "?" hasta que se actualiza el useState del mismo y pasamos al ":"
 

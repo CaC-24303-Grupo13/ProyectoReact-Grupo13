@@ -30,8 +30,8 @@
 }
 
 .header__navbar_button{
-    border: solid 1px darkgray;
+    /* border: solid 1px darkgray; */
     padding: 0 1rem;
+    /* text-decoration: none; */
 }
-
 

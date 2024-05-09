@@ -5,7 +5,7 @@ import { auth } from "../../utils/firebaseCredentials";         //  Importamos l
 import { onAuthStateChanged, signOut } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
                                                                 //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no
                                                                 //    signOut: para cerrar la sesion
-
+import Button from 'react-bootstrap/Button';
 
 export const Header = () => {
 
@@ -20,7 +20,7 @@ export const Header = () => {
     <div className="header__container">
         
         {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: '#4c4c4c'}}>GRIS: Componente Header</span>
+        {/* <span style={{fontSize: '.8rem', color: '#4c4c4c'}}>GRIS: Componente Header</span> */}
 
 
         {/* especie de ventana modal o card que se muestra al logearse el usuario  (tambien podriamos incluirlo en el header, ver ideas) */}
@@ -39,13 +39,13 @@ export const Header = () => {
         <ul className="header__navbar">
             
             {/* Menues OPCIONALES, agregar o quitar los necesarios */}
-            <Link to="/"><li className="header__navbar_button">Home</li></Link>
-            <Link to="/tendenciaDiaria"><li className="header__navbar_button">Tendencia Hoy</li></Link>
-            <Link to="/tendenciaSemanal"><li className="header__navbar_button">Tendencia Semanal</li></Link>
-            <Link to="/cartelera"><li className="header__navbar_button">En Cartelera</li></Link>
-            <Link to="/estrenos"><li className="header__navbar_button">Proximos Estrenos</li></Link>
-            <Link to="/topRankin"><li className="header__navbar_button">Mejores Puntuadas</li></Link>
-            {logedUser    ?<></>   :<Link to="/registrate"><li className="header__navbar_button">Registrate</li></Link>}
+            <Link to="/"><Button variant="secondary"><li className="header__navbar_button">Home</li></Button></Link>
+            <Link to="/tendenciaDiaria"><Button variant="secondary"><li className="header__navbar_button">Tendencia Hoy</li></Button></Link>
+            <Link to="/tendenciaSemanal"><Button variant="secondary"><li className="header__navbar_button">Tendencia Semanal</li></Button></Link>
+            <Link to="/cartelera"><Button variant="secondary"><li className="header__navbar_button">En Cartelera</li></Button></Link>
+            <Link to="/estrenos"><Button variant="secondary"><li className="header__navbar_button">Proximos Estrenos</li></Button></Link>
+            <Link to="/topRankin"><Button variant="secondary"><li className="header__navbar_button">Mejores Puntuadas</li></Button></Link>
+            {logedUser    ?<></>   :<Link to="/registrate"><Button variant="secondary"><li className="header__navbar_button">Registrate</li></Button></Link>}
 
         </ul>
 

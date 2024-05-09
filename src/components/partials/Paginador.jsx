@@ -44,7 +44,7 @@ const handlerGoToClick = (event) => {
     <div className="paginador__container">
 
         {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'magenta'}}>Magenta: Componente Paginador</span>
+        {/* <span style={{fontSize: '.8rem', color: 'magenta'}}>Magenta: Componente Paginador</span> */}
 
         <div className="paginador__buttonsContainer">
 

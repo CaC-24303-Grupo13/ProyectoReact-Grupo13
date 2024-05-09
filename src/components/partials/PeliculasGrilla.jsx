@@ -64,7 +64,7 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
       <div className="peliculasGrilla__container">
 
           {/* Leyenda que indica que componente es, Esto se BORRA */}
-          <span style={{fontSize: '.8rem', color: 'red'}}>ROJO: Componente Grilla de Peliculas</span>
+          {/* <span style={{fontSize: '.8rem', color: 'red'}}>ROJO: Componente Grilla de Peliculas</span> */}
 
           <h2>Grilla de Peliculas</h2>
 

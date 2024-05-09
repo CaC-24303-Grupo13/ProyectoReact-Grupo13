@@ -6,7 +6,7 @@ export const PeliculasCard = ({cardItemData}) => {
     <div className="peliculasCard__container">
 
         {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'blue'}}>AZUL: Componente Card de Pelicula</span>
+        {/* <span style={{fontSize: '.8rem', color: 'blue'}}>AZUL: Componente Card de Pelicula</span> */}
 
         <h3>{cardItemData.title}</h3>
         

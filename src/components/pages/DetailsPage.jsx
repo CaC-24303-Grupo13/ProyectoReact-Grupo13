@@ -9,7 +9,7 @@ export const DetailsPage = () => {
       <div  className="detailsPage__container">
 
         {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'green'}}>VERDE: Vista Detalles de 1 Pelicula</span>
+        {/* <span style={{fontSize: '.8rem', color: 'green'}}>VERDE: Vista Detalles de 1 Pelicula</span> */}
         
           <Header></Header>
           

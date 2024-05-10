@@ -2,10 +2,11 @@
 /* Desarrollo de estilos para el Componente Footer */
 
 .footer__container{
-    border: solid 2px darkblue;
+    /* border: solid 2px darkblue; */
     padding: 0 1rem 1rem 1rem;
     margin: 0.5rem 0;
     position: relative;
+    background-color: midnightblue;
 }
 
 .footer__navbar{

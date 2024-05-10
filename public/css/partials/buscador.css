@@ -6,10 +6,12 @@
     padding: 0 1rem 1rem 1rem;
     margin-top: 1rem;
     margin: 0.5rem 0;
+    background-color: midnightblue;
 }
 
 .buscador__form {
     display: flex;
     gap: 2rem;
     justify-content: center;
+    background-color: midnightblue;
 }

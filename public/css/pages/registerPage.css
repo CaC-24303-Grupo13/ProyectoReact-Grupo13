@@ -4,4 +4,5 @@
 .registerPage__container{
     border: solid 2px rgb(128, 0, 122);
     padding: 0 1rem 1rem 1rem;
+    background-color: midnightblue;
 }

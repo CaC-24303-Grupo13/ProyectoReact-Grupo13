@@ -2,16 +2,36 @@
 /* Desarrollo de estilos para el Componente Card de Pelicula */
 
 .peliculasCard__container {
-    border: solid 2px blue;
-    padding: 0 1rem 1rem 1rem;
+    
+    /* padding: 1rem; */
     width: 200px;
+    list-style: none;
+    text-align: center;
+    
+    /* height: 400px; */
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    /* background-color: silver; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+
 }
 
 
 .peliculasCard__poster-img{
+    border-radius: 10px;
     height: 25rem;
     width: 18rem;
+    
 }
 
 
 
+@media(max-width:560px){
+    .peliculasImage{
+width: 90%;
+height: auto;
+    }
+}

@@ -8,6 +8,8 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
 
+
+
 export const PeliculasGrilla = ({endpointGRILLA}) => {
 
   const APIendpoint = endpointGRILLA  // enpoint de consulta recibido desde el componente padre "ListPage" que a su vez lo recibio de su componente padre "App"   (Esto no me convence, debe haber forma mejor de hacerlo)
@@ -66,7 +68,7 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
           {/* Leyenda que indica que componente es, Esto se BORRA */}
           {/* <span style={{fontSize: '.8rem', color: 'red'}}>ROJO: Componente Grilla de Peliculas</span> */}
 
-          <h2>Grilla de Peliculas</h2>
+          <h2>Catálogo de Peliculas</h2>
 
           <div className="peliculasGrilla__ItemsContainer">
 

@@ -6,19 +6,22 @@
     padding: 0 1rem 1rem 1rem;
     margin: 0.5rem 0;
     position: relative;
+    background-color: midnightblue;
 }
 
 
 .header__userLogedCard{
-    border: solid 2px crimson;
+    /* border: solid 2px crimson; */
     position: absolute;
     top: 1rem;
     right: 1rem;
+    background-color: midnightblue;
 }
 
 .header__title{
     text-align: center;
     margin-bottom: 2rem;
+    
 }
 
 .header__navbar{

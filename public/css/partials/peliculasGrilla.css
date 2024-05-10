@@ -2,8 +2,9 @@
 /* Desarrollo de estilos para el Componente Grilla de Peliculas */
 
 .peliculasGrilla__container {
-    border: solid 2px red;
+    /* border: solid 2px red; */
     padding: 0 1rem 1rem 1rem;
+    background-color: midnightblue;
 }
 
 .peliculasGrilla__ItemsContainer {
@@ -15,7 +16,7 @@
 .peliculasGrilla__loading,
 .peliculasGrilla__server-down,
 .peliculasGrilla__server-error {
-    border: solid 2px blue;
+    /* border: solid 2px blue; */
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -34,4 +35,11 @@
 .peliculasGrilla__server-error-img{
     height: 22rem;
     width: 45rem;
+}
+
+h2 {
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem;
+
 }

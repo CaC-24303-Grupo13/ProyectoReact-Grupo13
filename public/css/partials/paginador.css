@@ -2,7 +2,7 @@
 /* Desarrollo de estilos para el Componente Paginador */
 
 .paginador__container {
-    border: solid 2px magenta;
+    /* border: solid 2px magenta; */
     padding: 0 1rem 1rem 1rem;
     margin-top: 1rem;
 }

@@ -5,6 +5,7 @@ import { HomePage } from './components/pages/HomePage';
 import { ListPage } from './components/pages/ListPage';
 import { DetailsPage } from './components/pages/DetailsPage';
 import { RegisterPage } from './components/pages/RegisterPage';
+import { PeliculasFavoritas } from './components/partials/PeliculasFavoritas';
 
 import { auth } from "./utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado de Auth.
 import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
@@ -43,6 +44,9 @@ function App() {
 
         {/* Este caso es a la inversa, si "logedUser" existe, redireccionamos a home (porque no se puede registrar nuevamente) y si no existe mostramos registrar */}
         <Route path="/registrate" element={logedUser   ?redirectToHome()  :<RegisterPage />} />
+
+        {/* Ruta de prueba para traer las favoritas */}
+        <Route path="/pruebaFavoritas" element={<PeliculasFavoritas />}/>
 
       </Routes>
     </BrowserRouter>

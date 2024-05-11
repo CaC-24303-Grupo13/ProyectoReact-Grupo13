@@ -6,7 +6,7 @@ import { ListPage } from './components/pages/ListPage';
 import { DetailsPage } from './components/pages/DetailsPage';
 import { RegisterPage } from './components/pages/RegisterPage';
 import { ListPageFavoritas } from './components/pages/ListPageFavoritas';
-import { PeliculasFavoritas } from './components/partials/PeliculasFavoritas';
+import { PeliculasFavoritas } from './components/partials/ListPageFavoritas';
 
 import { auth } from "./utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado de Auth.
 import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 

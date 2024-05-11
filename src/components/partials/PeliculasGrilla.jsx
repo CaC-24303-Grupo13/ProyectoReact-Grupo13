@@ -78,7 +78,7 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
                         ? (
                             <div className="peliculasGrilla__loading">
                                 <h3 className="peliculasGrilla_textoLight">C a r g a n d o  . . .</h3>
-                                <Spinner animation="border" className="peliculasGrilla_textoLight"/>
+                                <Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/>
                                 {/* <img className="peliculasGrilla__loading-img" src={`/images/loading.gif`} alt="Imagen Pelicula" /> */}
                             </div>
                           )  

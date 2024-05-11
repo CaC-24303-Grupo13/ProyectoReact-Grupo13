@@ -37,9 +37,9 @@
     width: 45rem;
 }
 
-h2 {
-    align-items: center;
-    justify-content: center;
-    margin: 1.5rem;
+.peliculasGrilla_textoLight {
+    color: var(--light-color-900);
 
 }
+
+

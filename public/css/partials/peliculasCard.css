@@ -27,6 +27,10 @@
     
 }
 
+.peliculasCard_textoLight {
+    color: var(--light-color-900);
+
+}
 
 
 @media(max-width:560px){

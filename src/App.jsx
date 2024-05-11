@@ -5,6 +5,7 @@ import { HomePage } from './components/pages/HomePage';
 import { ListPage } from './components/pages/ListPage';
 import { DetailsPage } from './components/pages/DetailsPage';
 import { RegisterPage } from './components/pages/RegisterPage';
+import { ListPageFavoritas } from './components/pages/ListPageFavoritas';
 import { PeliculasFavoritas } from './components/partials/PeliculasFavoritas';
 
 import { auth } from "./utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado de Auth.
@@ -46,7 +47,7 @@ function App() {
         <Route path="/registrate" element={logedUser   ?redirectToHome()  :<RegisterPage />} />
 
         {/* Ruta de prueba para traer las favoritas */}
-        <Route path="/pruebaFavoritas" element={<PeliculasFavoritas />}/>
+        <Route path="/pruebaFavoritas" element={<ListPageFavoritas />}/>
 
       </Routes>
     </BrowserRouter>

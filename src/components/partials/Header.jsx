@@ -45,6 +45,7 @@ export const Header = () => {
             <Link to="/cartelera"><li className="header__navbar_button">En Cartelera</li></Link>
             <Link to="/estrenos"><li className="header__navbar_button">Proximos Estrenos</li></Link>
             <Link to="/topRankin"><li className="header__navbar_button">Mejores Puntuadas</li></Link>
+            <Link to="/pruebaFavoritas"><li className="header__navbar_button">Favoritas</li></Link>
             {logedUser    ?<></>   :<Link to="/registrate"><li className="header__navbar_button">Registrate</li></Link>}
 
         </ul>

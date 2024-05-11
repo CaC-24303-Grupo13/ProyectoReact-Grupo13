@@ -1,50 +1,83 @@
-
-/* Desarrollo de estilos para el Componente Paginador */
+/* - - - - - - - - - - - - - - - - - - -  INICIO DEL CSS PARA EL COMPONENTE PAGINADOR - - - - - - - - - - - - - - - - - - -  */
 
 .paginador__container {
-    border: solid 2px magenta;
-    padding: 0 1rem 1rem 1rem;
-    margin-top: 1rem;
-}
-
-
-.paginador__buttonsContainer {
+    /* border: solid 2px magenta; */
     display: flex;
     gap: 1rem;
     justify-content: center;
-}
-
-.paginador__info {
-    font-size: 0.8rem;
-    color: magenta;
+    margin: 2rem 1rem 1rem 1rem;
 }
 
 
-.paginador__page-info {
-    border: solid 1px magenta;
+.paginador__pagesInfo{
+    /* border: solid 1px magenta; */
     height: 3rem;
     font-size: 1.5rem;
     padding: 0.5rem 1rem 0 1rem;
+    margin-right: 1rem;
 }
 
-.paginador__nav-button,
-.paginador__number-button,
-.paginador__goto-button {
-    border: solid 1px magenta;
+.paginador__navButtonIcon{
+    border: solid 1px rgb(133, 133, 133);
     height: 3rem;
     width: 3rem;
-    font-size: 1.5rem;
-}
-
-.paginador__goto {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5rem;
 }
 
-.paginador__goto-input{
-    border: solid 1px magenta;
+.paginador__navButtonIcon iconify-icon{
+    font-size: 2rem;
+    color: rgb(69, 69, 69);
+}
+
+.paginador__navButtonNumber{
+    border: solid 1px rgb(133, 133, 133);
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5rem;
+}
+
+.paginador__navButtonNumber:hover,
+.paginador__navButtonIcon:hover{
+    background-color: #bbb;
+    border-color: #3366cc;
+    transition: background 0.1s, color 0.1s;
+}
+
+.paginador__pagesGoTo{
+    /* border: solid 1px magenta; */
+    height: 3rem;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem 0 1rem;
+    /* margin-left: 1rem; */
+}
+
+.paginador__goToInput{
+    border: solid 1px rgb(133, 133, 133);
     height: 3rem;
     width: 6rem;
     font-size: 1.5rem;
     padding: 0 .9rem;
+    border-radius: .5rem;
 }
+
+.paginador__goToInput:focus,
+.paginador__goToInput:hover {
+    border-color: #3366cc;
+    outline: none;
+}
+
+.paginador__navButtonGoTo{
+    border: solid 1px rgb(133, 133, 133);
+    height: 3rem;
+    width: 3rem;
+    border-radius: .5rem;
+    margin-left: .5rem;
+}
+
+/* - - - - - - - - - - - - - - - - - - -  FIN DEL CSS PARA EL COMPONENTE PAGINADOR - - - - - - - - - - - - - - - - - - -  */

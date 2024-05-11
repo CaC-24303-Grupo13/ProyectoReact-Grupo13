@@ -39,13 +39,14 @@ export const Header = () => {
         <ul className="header__navbar">
             
             {/* Menues OPCIONALES, agregar o quitar los necesarios */}
-            <Link to="/"><Button variant="secondary"><li className="header__navbar_button">Home</li></Button></Link>
-            <Link to="/tendenciaDiaria"><Button variant="secondary"><li className="header__navbar_button">Tendencia Hoy</li></Button></Link>
-            <Link to="/tendenciaSemanal"><Button variant="secondary"><li className="header__navbar_button">Tendencia Semanal</li></Button></Link>
-            <Link to="/cartelera"><Button variant="secondary"><li className="header__navbar_button">En Cartelera</li></Button></Link>
-            <Link to="/estrenos"><Button variant="secondary"><li className="header__navbar_button">Proximos Estrenos</li></Button></Link>
-            <Link to="/topRankin"><Button variant="secondary"><li className="header__navbar_button">Mejores Puntuadas</li></Button></Link>
-            {logedUser    ?<></>   :<Link to="/registrate"><Button variant="secondary"><li className="header__navbar_button">Registrate</li></Button></Link>}
+            <Link to="/"><li className="header__navbar_button">Home</li></Link>
+            <Link to="/tendenciaDiaria"><li className="header__navbar_button">Tendencia Hoy</li></Link>
+            <Link to="/tendenciaSemanal"><li className="header__navbar_button">Tendencia Semanal</li></Link>
+            <Link to="/cartelera"><li className="header__navbar_button">En Cartelera</li></Link>
+            <Link to="/estrenos"><li className="header__navbar_button">Proximos Estrenos</li></Link>
+            <Link to="/topRankin"><li className="header__navbar_button">Mejores Puntuadas</li></Link>
+            <Link to="/pruebaFavoritas"><li className="header__navbar_button">Favoritas</li></Link>
+            {logedUser    ?<></>   :<Link to="/registrate"><li className="header__navbar_button">Registrate</li></Link>}
 
         </ul>
 

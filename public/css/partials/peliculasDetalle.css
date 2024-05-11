@@ -62,3 +62,9 @@
     height: 22rem;
     width: 45rem;
 }
+
+
+.peliculasDetalle_textoLight {
+    color: var(--light-color-900);
+
+}

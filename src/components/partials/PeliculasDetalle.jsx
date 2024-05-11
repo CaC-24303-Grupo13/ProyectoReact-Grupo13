@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import { getDataMovieDB } from '../../utils/conexionAPI';
 import { useParams } from "react-router-dom";
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
+import Image from 'react-bootstrap/Image';
+
+
+
 
 export default function PeliculasDetalle() {
   
@@ -40,20 +48,24 @@ export default function PeliculasDetalle() {
         { isLoading == true     // evaluamos si "isLoading" es true, como asi lo establecimos se mostrara "?" hasta que se actualiza el useState del mismo y pasamos al ":"
 
             ?   <div className="peliculasDetalle__loading">
-                    <h3>C a r g a n d o  . . .</h3>
-                    <img className="peliculasDetalle__loading-img" src={`/images/loading.gif`} alt="Cargando"/>
+                    <h3 className="peliculasDetalle_textoLight">C a r g a n d o  . . .</h3>
+                                <Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/>
                 </div>
 
-            :   <div className="peliculasDetalle__flex">
+            :   <div className="container peliculasDetalle__flex">
+                <Container>
+                  <Row>
+                    <Col sm={4}>
 
                     {/* Aca hacer que el condicional no solo muestre una imagen vacia sino que tambien cuando viene data mala, mostrar que la pelicula no existe o redirigir al home */}
 
                     { movieData.poster_path != null
-                        ?  <img className="peliculasDetalle__poster-img" src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt="Imagen Pelicula"/>
-                        :  <img className="peliculasDetalle__poster-img" src={`/images/emptyPoster.svg`} alt="Imagen Pelicula" />
+                        ?  <Image fluid thumbnail src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt="Imagen Pelicula"/>
+                        :  <Image fluid thumbnail src={`/images/emptyPoster.svg`} alt="Imagen Pelicula" />
                     }
-                    
-                    <div>
+                    </Col>
+
+                    <Col sm={8} className="peliculasDetalle_textoLight">
                             {/* Aca ver que data mostrar, seguramente faltan cosas o sobran cosas */}
 
                             <h3>{movieData.title}</h3>
@@ -62,7 +74,9 @@ export default function PeliculasDetalle() {
                             <p>{movieData.overview}</p>
                             <p>Url ID: {idpelicula}</p>         {/*   Este ID se obtiene desde la URL     */}
                             <p>Data ID: {movieData.id}</p>      {/*   Este ID se obtiene desde la Data de la API     */}
-                    </div>
+                    </Col>
+                  </Row>
+                </Container>
                 
                 </div>
         }

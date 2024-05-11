@@ -67,7 +67,9 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
 
       <Container fluid>
         <Row>
+          <Col></Col>
           <Col><h1 className="peliculasGrilla_textoLight">Catálogo de Peliculas</h1></Col>
+          <Col></Col>
         </Row>
         <Row>
           <Col>

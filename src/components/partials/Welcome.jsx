@@ -1,6 +1,7 @@
 import { Login } from "./Login"
 import { useState } from "react";
 
+
 import { auth } from "../../utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado con getAuth y guardado en  la constante auth
 import { onAuthStateChanged } from "firebase/auth";           //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
                                                               //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no
@@ -16,13 +17,10 @@ export const Welcome = () => {
   return (
     
 
-    <div style={{border: 'solid 2px red', padding: '0 1rem 1rem 1rem'}}>
+    <div className= "pageLogin__container" /*style={{border: 'solid 2px red', padding: '0 1rem 1rem 1rem'}}*/>
 
-        {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'red'}}>ROJO: Componente mensaje de Bienvenida Home</span>
-
-        <h2>Bienvenido</h2>
-        <p>En esta App podra encontrar las mejores peliculas</p>
+        <h2 className="pageLogin_titulo">Bienvenido</h2>
+        <p className="pageLogin_p">En esta App podra encontrar las mejores peliculas</p>
 
 
         { logedUser

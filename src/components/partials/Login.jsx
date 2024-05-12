@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom/dist";
 import { useState } from "react";
-
+import SweetAlertConfig from '../../../../swal2.config';
 import { auth } from "../../utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado con getAuth y guardado en  la constante auth
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
                                                                 //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no
@@ -34,11 +34,11 @@ export const Login = () => {
 
                 // todos estos alert reemplazarlos por Sweet Alerts o mensajes en el la pantalla sobre la misma pagina... elegir a gusto
                 if (error.code == "auth/user-not-found"){
-                    alert("Por Favor Registrese")
+                    SweetAlertConfig.alertaError("error","No estas registrado, por favor registrese");
                 }else if ("auth/wrong-password"){
-                    alert("Por favor verifique sus datos")
+                    SweetAlertConfig.alertaError("info","Datos incompletos");
                 }else{
-                    alert("Error al iniciar sesion")
+                    SweetAlertConfig.alertaError("error","Error en inicio de sesion");
                 }
         }
   }
@@ -60,11 +60,12 @@ export const Login = () => {
                 <br/>
                 <input type="password" name="password" id="password" className="login__form-inputfield"></input>
             </div>
-
-            <button type="submit">Ingresar</button>
-            
+            <div className="login__form_btn">
+                <button className="login_btn" type="submit">Ingresar</button>
+            </div>
             <div className="login__register-link">
-                <span>¿No eres usuario? </span><Link to="/registrate">¡Haz click y Registrate!</Link>
+                <span>¿No eres usuario? </span>
+                <Link to="/registrate">¡Haz click y Registrate!</Link>
             </div>
         </form>
     </div>

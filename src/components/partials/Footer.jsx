@@ -9,9 +9,7 @@ export const Footer = () => {
 
     <div className="footer__container">
         
-        {/* Leyenda que indica que componente es, Esto se BORRA */}
-        {/* <span style={{fontSize: '.8rem', color: '#4c4c4c'}}>GRIS: Componente Footer</span> */}
-
+       
         <ul className="footer__navbar">
             
             {/* Menues OPCIONALES, agregar o quitar los necesarios */}

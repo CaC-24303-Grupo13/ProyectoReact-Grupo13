@@ -17,19 +17,13 @@ import Modal from 'react-bootstrap/Modal';
 function TrailerModal(props) {
   return (
     <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Trailer: {props.tituloPelicula}</Modal.Title>
-      </Modal.Header>
+      <Modal.Header closeButton><Modal.Title id="contained-modal-title-vcenter">Trailer: {props.tituloPelicula}</Modal.Title></Modal.Header>
       <Modal.Body>
         {props.videoTrailer ? 
           props.videoTrailer : 
-          <p>
-            Lo sentimos, no pudimos encontrar el trailer.
-          </p>}
+          <p>Lo sentimos, no pudimos encontrar el trailer.</p>}
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="light" onClick={props.onHide}>Cerrar</Button>
-      </Modal.Footer>
+      <Modal.Footer><Button variant="light" onClick={props.onHide}>Cerrar</Button></Modal.Footer>
     </Modal>
   );
 }

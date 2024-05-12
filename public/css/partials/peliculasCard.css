@@ -30,6 +30,7 @@
 .peliculasCard_textoLight {
     color: var(--light-color-900);
 
+    position: relative;   /* Linea agregada para el "Add Favorites" */
 }
 
 

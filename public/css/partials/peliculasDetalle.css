@@ -42,9 +42,9 @@
     gap: 1rem;
 }
 
-.peliculasGrilla__loading,
-.peliculasGrilla__server-down,
-.peliculasGrilla__server-error {
+.peliculasDetalle__loading,
+.peliculasDetalle__server-down,
+.peliculasDetalle__server-error {
     border: solid 2px blue;
     padding: 1rem;
     width: 100%;
@@ -53,12 +53,12 @@
 
 
 
-.peliculasGrilla__server-down-img{
+.peliculasDetalle__server-down-img{
     height: 35rem;
     width: 52rem;
 }
 
-.peliculasGrilla__server-error-img{
+.peliculasDetalle__server-error-img{
     height: 22rem;
     width: 45rem;
 }

@@ -9,6 +9,11 @@ import { onAuthStateChanged, signOut } from "firebase/auth";    //  Importamos l
 
 export const Header = () => {
 
+  const [showDropdownMenu, setShowDropdownMenu] = useState(false);
+
+  const toggleDropdownMenu = () => {
+      setShowDropdownMenu(!showDropdownMenu);
+  };
   // Creamos un observador global para que verifique si hay un usuario Logeado o no
   const [logedUser, setLogedUser] = useState(null)
   // onAuthStateChanged: guarda en el segundo parametro un objeto con data del usuario cuando esta logeado (fbLogedUser). 
@@ -25,14 +30,17 @@ export const Header = () => {
         {logedUser
                 ?   <div className="header__userLogedCard">
                         <span>Bienvenido: {logedUser.email}</span>
-                        <br/>
-                        <button onClick={() => signOut(auth)}>Cerrar Sesion</button>
+                        
+                        <button onClick={() => signOut(auth)}>Salir</button>
                     </div> 
                 :   <></>
         }
 
 
         <h1 className="header__title">Buscador de Peliculas . Com</h1>            {/* Aca ver si metemos una imagen al header, un nombre o lo que fuere */}
+
+
+
 
         <ul className="header__navbar">
             

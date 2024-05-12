@@ -2,6 +2,9 @@
 /* Desarrollo de estilos para la vista de la Register Page */
 
 .registerPage__container{
-    border: solid 2px rgb(128, 0, 122);
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem; 
+    background-image: url(../../images/oled-4k.jpg);
+    background-size: cover;
+    background-position: center;
+    min-width: 300px;
 }

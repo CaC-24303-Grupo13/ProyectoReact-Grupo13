@@ -2,25 +2,47 @@
 /* Desarrollo de estilos para el Componente Footer */
 
 .footer__container{
-    border: solid 2px darkblue;
+
     padding: 0 1rem 1rem 1rem;
     margin: 0.5rem 0;
     position: relative;
 }
-
-.footer__navbar{
+.footer__navbar {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: flex-start;
+    align-items: flex-end;
     list-style: none;
     padding: 0;
 }
 
-.footer__navbar_button{
-    border: solid 1px darkgray;
-    width: 15rem;
-    margin: .5rem 0;
-    padding: 0 1rem;
+
+.footer__navbar_button {
+    margin: 5px 5px 0 0;
+    padding: 10px 20px;
+    font-size: 10px;
+    background-color: #03001d;
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    width: 120px
+}
+
+.footer__navbar_button:hover {
+    background-color: #fffffe;
 }
 
 
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 400px) {
+    .footer__navbar {
+       display: none;
+    }
+
+
+}

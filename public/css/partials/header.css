@@ -1,4 +1,6 @@
 
+
+
 /* Desarrollo de estilos para el Componente Header */
 
 .header__container{
@@ -6,14 +8,33 @@
     padding: 0 1rem 1rem 1rem;
     margin: 0.5rem 0;
     position: relative;
+    
+    overflow: hidden;
 }
 
 
 .header__userLogedCard{
-    border: solid 2px crimson;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 139, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    max-width: 300px;
+    min-width: 200px;
+    width: 80%;
+    margin: 3px;
+    padding: 0rem; 
+    color: white; 
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    right: 0;
+    margin-right: 20px;
+}
+.header__userLogedCard button{
+    position: absolute;
+    background-color: #f0f0f0;
+    color: #333;
+   
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;  
 }
 
 .header__title{
@@ -25,30 +46,59 @@
 
 .header__navbar{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-wrap: nowrap;
+    justify-content: center;
     list-style: none;
     padding: 0;
     
 }
-
-.header__navbar_button{
-    flex-shrink: 1; 
+.header__navbar_button {
+    flex-shrink: 1;
     margin-left: 10px;
-    padding: 10px 20px;
-    
-    border-radius: 25px; 
-    background-color: #ffcc00;     
-    color: white; 
-    
+    padding: 0 20px;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px; /* Redondear más los botones */
+    background-color: #ffcc00;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgb(251, 227, 8);
-}
-.header__navbar_button:hover {
-    background-color: #ef9d46; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+    box-shadow: 0 2px 4px rgba(251, 227, 8, 0.5); /* Ajustamos la sombra */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
 }
 
+.header__navbar_button:hover {
+    background-color: #ef9d46;
+    cursor: pointer; /* Cambio del cursor al pasar por encima */
+}
+
+@media screen and (max-width: 1383px) {
+    .header__navbar {
+        flex-wrap: wrap; /* Permitir que los botones se envuelvan */
+        justify-content: center; /* Centrar los botones */
+    }
+
+    .header__navbar_button {
+        margin: 5px; /* Espacio entre los botones */
+    }
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 1010px) {
+    .header__navbar {
+        justify-content: flex; 
+    }
+
+    .header__navbar_button {
+        padding: 0 15px; /* Reducir el espacio horizontal del botón */
+        font-size: 14px; /* Reducir el tamaño del texto */
+        border-radius: 15px; /* Redondear aún más los botones */
+        height: 30px;
+        line-height: 30px;
+    }
+}

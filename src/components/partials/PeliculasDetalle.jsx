@@ -2,17 +2,42 @@ import { useState, useEffect } from 'react';
 import { getDataMovieDB } from '../../utils/conexionAPI';
 import { useParams } from "react-router-dom";
 
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
+
+
+ /* --- Función para crear el modal que se va a usar para ver el trailer de la pelicula ---  */
+function TrailerModal(props) {
+  return (
+    <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Trailer: {props.tituloPelicula}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {props.videoTrailer ? 
+          props.videoTrailer : 
+          <p>
+            Lo sentimos, no pudimos encontrar el trailer.
+          </p>}
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="light" onClick={props.onHide}>Cerrar</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 
 
 export default function PeliculasDetalle() {
-  
+    
   const { idpelicula } = useParams();  // capturamos el ID de la pelicula desde la URL  (el nombre de la variable desestructurada debe coincidir con el nombre que le asignamos en la definicion de rutas con React Router DOM)
 
   // definimos los argumentos para enviar como parametros a la consulta en la API
@@ -23,6 +48,7 @@ export default function PeliculasDetalle() {
 
   const [movieData, setmovieData] = useState([])      // inicializamos la variable movieData como un array vacio que luego sera "completado" con el useEffect y la arrow function
   const [isLoading, setisLoading] = useState(true)    // inicializamos el isLoading como true para que se muestre directamente el spinner
+  const [modalShow, setModalShow] = useState(false);
 
   
   useEffect(() => {   // Al cargarse este componente se ejecuta este evento secundario 1 sola vez
@@ -35,8 +61,14 @@ export default function PeliculasDetalle() {
 
     fetchData()   // ejecutamos la arrow function
 
+
+
+
+
   }, [])    // no pasamos ninguna dependencia que haga que se vuelva a ejecutar este evento secundario, no lo necesitamos
 
+
+  
   return (
 
 
@@ -74,6 +106,10 @@ export default function PeliculasDetalle() {
                             <p>{movieData.overview}</p>
                             <p>Url ID: {idpelicula}</p>         {/*   Este ID se obtiene desde la URL     */}
                             <p>Data ID: {movieData.id}</p>      {/*   Este ID se obtiene desde la Data de la API     */}
+                            
+                            <Button variant="primary" onClick={() => setModalShow(true)}>Ver trailer</Button>
+                            <TrailerModal tituloPelicula={movieData.title} videoTrailer={movieData.video} show={modalShow} onHide={() => setModalShow(false)}/>
+                            
                     </Col>
                   </Row>
                 </Container>

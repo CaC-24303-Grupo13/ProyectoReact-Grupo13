@@ -16,13 +16,11 @@ export const Welcome = () => {
   return (
     
 
-    <div style={{border: 'solid 2px red', padding: '0 1rem 1rem 1rem'}}>
+    <div  className= "pageLogin__container" >
 
-        {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'red'}}>ROJO: Componente mensaje de Bienvenida Home</span>
 
-        <h2>Bienvenido</h2>
-        <p>En esta App podra encontrar las mejores peliculas</p>
+        <h2 className="pageLogin_titulo">Bienvenido</h2>
+        <p className="pageLogin_p">En esta App podra encontrar las mejores peliculas</p>
 
 
         { logedUser

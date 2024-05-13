@@ -1,10 +1,15 @@
 /* Desarrollo de estilos para el Componente Register */
 
 .register__container {
-  border: solid 2px black;
-  width: 30rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 139, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  max-width: 300px;
+  min-width: 200px;
+  width: 80%;
   margin: auto;
-  padding: 1rem;
+  padding: 1rem; 
+  color: white; 
 }
 
 .register__form {
@@ -16,8 +21,25 @@
 
 .register__input {
   width: 98%;
+  height: 30px;
+  border-radius: 5px; 
+  border: none;
 }
 
 .register__submit {
-  /* Estilos adicionales para el botón de submit si es necesario */
+  margin: 5px 5px 0 0;
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;  
+  width: 120px;
+}
+.register__btn{
+  
+    display: flex;
+    justify-content: center;
 }

@@ -1,0 +1,12 @@
+.alert__container{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 139, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    max-width: 300px;
+    min-width: 200px;
+    width: 80%;
+    margin: auto;
+    padding: 1rem; 
+    color: white; 
+    
+}

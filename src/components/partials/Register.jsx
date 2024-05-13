@@ -61,11 +61,13 @@ export const Register = () => {
                 //console.log(error.code);
         
                 if (error.code == "auth/weak-password"){    // todas estas alert tambien van sweet alert
-                  alert("Contraseña Debil: por favor utilice minimamente 6 caracteres")
+                  
+                  SweetAlertConfig.alertaError("info","Contraseña Debil: por favor utilice minimamente 6 caracteres")
                 }else if ("auth/email-already-in-use"){
-                  alert("Usted ya se encuentra registrado")
+                    SweetAlertConfig.alertaError("info","Usted ya se encuentra registrado")
+                  
                 }else{
-                  alert("Error al intentar Registrarse")
+                    SweetAlertConfig.alertaError("info","Error al intentar Registrarse")                
                 }
               }
 
@@ -74,7 +76,8 @@ export const Register = () => {
         }else {     // si las contraseñas no coinciden advertimos para correccion
 
             // Esto cambiar por un sweet alert
-            alert("Las contraseñas no coinciden")
+            SweetAlertConfig.alertaError("error","Las contraseñas no coinciden") 
+            
 
         }
     }

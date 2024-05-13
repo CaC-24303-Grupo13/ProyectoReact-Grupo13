@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom/dist";
 import { useState } from "react";
-
+import SweetAlertConfig from '../../../src/utils/swal2.config';
 import { auth } from "../../utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado con getAuth y guardado en  la constante auth
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
                                                                 //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no
@@ -34,11 +34,11 @@ export const Login = () => {
 
                 // todos estos alert reemplazarlos por Sweet Alerts o mensajes en el la pantalla sobre la misma pagina... elegir a gusto
                 if (error.code == "auth/user-not-found"){
-                    alert("Por Favor Registrese")
+                    SweetAlertConfig.alertaError("error","No estas registrado, por favor registrese");
                 }else if ("auth/wrong-password"){
-                    alert("Por favor verifique sus datos")
+                    SweetAlertConfig.alertaError("info","Datos incompletos");
                 }else{
-                    alert("Error al iniciar sesion")
+                    SweetAlertConfig.alertaError("error","Error en inicio de sesion");
                 }
         }
   }

@@ -10,6 +10,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Stack from 'react-bootstrap/Stack';
 
 
 
@@ -95,14 +96,27 @@ export default function PeliculasDetalle() {
                             {/* Aca ver que data mostrar, seguramente faltan cosas o sobran cosas */}
 
                             <h3>{movieData.title}</h3>
-                            <p>{movieData.tagline}</p>
-                            <p>Lanzamiento: {movieData.release_date}</p>
+                            <h4>{movieData.tagline}</h4>
+                            <p>Titulo original: {movieData.original_title}</p>
                             <p>{movieData.overview}</p>
-                            <p>Url ID: {idpelicula}</p>         {/*   Este ID se obtiene desde la URL     */}
-                            <p>Data ID: {movieData.id}</p>      {/*   Este ID se obtiene desde la Data de la API     */}
+                              <Button variant="primary" onClick={() => setModalShow(true)}>Ver trailer</Button>
+                              <TrailerModal tituloPelicula={movieData.title} videoTrailer={movieData.video} show={modalShow} onHide={() => setModalShow(false)}/>
+                              
+                            <Stack direction="horizontal" gap={3}>
+                              <div className="p-2 ms-auto">Géneros:</div> 
+                              {movieData.genres.map( genre => (
+                                <div className="p-2">{genre.name}</div>
+                              ))}
+                            </Stack>
+                            <Stack direction="horizontal" gap={3}>
+                              <div className="p-2 ms-auto">Lanzamiento: {movieData.release_date}</div>
+                              <div className="p-2">Puntuación promedio: {movieData.vote_average}</div>
+                              <div className="p-2">Cantidad puntuaciones: {movieData.vote_count}</div>
+                            </Stack>
+                             
                             
-                            <Button variant="primary" onClick={() => setModalShow(true)}>Ver trailer</Button>
-                            <TrailerModal tituloPelicula={movieData.title} videoTrailer={movieData.video} show={modalShow} onHide={() => setModalShow(false)}/>
+                            {/* <p>Url ID: {idpelicula}</p>    */}      {/*   Este ID se obtiene desde la URL     */}
+                            {/* <p>Data ID: {movieData.id}</p>    */}   {/*   Este ID se obtiene desde la Data de la API     */}
                             
                     </Col>
                   </Row>

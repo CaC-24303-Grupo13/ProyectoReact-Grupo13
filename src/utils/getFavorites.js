@@ -1,7 +1,7 @@
 
 import { db } from "./firebaseCredentials";            //  Importamos la instancia del servicio incializado con getFirestore y guardado en  la constante db
 import { collection, query, where, getDocs, addDoc, Timestamp } from 'firebase/firestore';             //  Importamos los modulos/funciones a utilizar de Firebase Firestore
-
+import  SweetAlertConfig from './swal2.config.js';
 import { getDataMovieDB } from "./conexionAPI";     // Importamos la consulta a la API
 
 // Sweet Alert
@@ -107,26 +107,15 @@ export const addToFavorites = async (userID, movieID) => {
 
         await addDoc(usuariosCollecton, favoriteDataToSave)
         //alert("Pelicula Agregada")
-        MySwal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Su pelicula fue agregada a Favoritos",
-            showConfirmButton: false,
-            timer: 1500
-        })
+        SweetAlertConfig.alertaCheck("La pelicula se agrego a Favoritas")
         
 
     } catch (error) {
 
         console.error('Error al obtener las películas favoritas', error);
         //alert("Adicion Fallida")
-        MySwal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "No pudimos Agregar su Pelicula",
-            showConfirmButton: false,
-            timer: 1500
-        })
+
+        SweetAlertConfig.alertaError("error","No pudimos agregar su pelicula")
 
     }
 

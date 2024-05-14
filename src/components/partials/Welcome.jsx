@@ -4,7 +4,7 @@ import { useState } from "react";
 import { auth } from "../../utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado con getAuth y guardado en  la constante auth
 import { onAuthStateChanged } from "firebase/auth";           //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
                                                               //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no
-
+import Recomendados from '../partials/Recomendados';
 export const Welcome = () => {
 
   // Creamos un observador global para que verifique si hay un usuario Logeado o no
@@ -27,11 +27,10 @@ export const Welcome = () => {
                       // Si "logedUser" existe mostramos esto  (diseñar alguna pantalla de bienvenida)
                     ? <>
                         <div className="welcome__container">
-                          <h2>Hola {logedUser.email}, bienvenido de nuevo...</h2>  
-                          <p>Aca te dejamos un contenido seleccionado especialmente para vos</p>
-                          <p>etcetera</p>
-                          <p>etcetera</p>
-                          <p>etcetera</p>
+                          <h2 className="welcome__container_titulo">Hola {logedUser.email}, bienvenido de nuevo...</h2>  
+                          <p className="welcome__container_subtitulo">Aca te dejamos un contenido seleccionado especialmente para vos</p>
+                          <Recomendados /> 
+                          
                         </div>
                       </>
 

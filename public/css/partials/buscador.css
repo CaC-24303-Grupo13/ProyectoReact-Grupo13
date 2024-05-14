@@ -2,16 +2,30 @@
 /* Desarrollo de estilos para el Componente Buscador */
 
 .buscador__container {
-    border: solid 2px coral;
-    padding: 0 1rem 1rem 1rem;
-    margin-top: 1rem;
-    margin: 0.5rem 0;
-    
+    display: flex;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 139, 0.3);
+    /*box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);*/
+   padding: 15px;
+
 }
 
+.buscador__container button{
+    background-color: #03001d;
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+}
+.buscador__container button:hover{
+    background-color: #ffffff;
+}
 .buscador__form {
     display: flex;
     gap: 2rem;
     justify-content: center;
    
 }
+

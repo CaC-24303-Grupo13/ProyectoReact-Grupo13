@@ -11,8 +11,8 @@ export const ListPage = ({endpointRUTA}) => {
 
 
           <Header></Header>
+          <div className="listPage__container_buscador"> <Buscador></Buscador></div>
           
-          <Buscador></Buscador>
 
           {/* Aqui recibimos el endpoin desde la Ruta y se lo pasamos a la Grilla */}
           <PeliculasGrilla endpointGRILLA={endpointRUTA}></PeliculasGrilla>

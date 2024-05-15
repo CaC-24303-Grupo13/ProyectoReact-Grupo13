@@ -6,6 +6,8 @@ import { db, auth } from "../../utils/firebaseCredentials";            //  Impor
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
 
+import Spinner from 'react-bootstrap/Spinner';
+
 //import { getDataMovieDB } from '../../utils/conexionAPI';     // Ya no lo requerimos porque ahora importamos la funcion que directamente nos entrega el array de favoritas
 import { getPeliculasFavoritas, addToFavorites } from '../../utils/getFavorites';   // aqui importamos la funcion que nos entrega el array de favoritas
 
@@ -74,7 +76,7 @@ useEffect(() => {
 
   return (
     <>
-        <h2>Peliculas Favoritas</h2>
+        <h1 className='peliculasGrilla_textoLight'>Peliculas Favoritas</h1>
 
         <div className="peliculasGrilla__ItemsContainer">
 
@@ -82,10 +84,11 @@ useEffect(() => {
                     
                     ? (
                         <div className="peliculasGrilla__loading">
-                            <h3>C a r g a n d o  . . .</h3>
-                            <img className="peliculasGrilla__loading-img" src={`/images/loading.gif`} alt="Imagen Pelicula" />
+                            <h3 className="peliculasGrilla_textoLight">C a r g a n d o  . . .</h3>
+                            <Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                            {/* <img className="peliculasGrilla__loading-img" src={`/images/loading.gif`} alt="Imagen Pelicula" /> */}
                         </div>
-                        )  
+                      )  
                     : movieDBisDown === true         // evaluamos si "movieDBisDown" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
                     
                                         ? (

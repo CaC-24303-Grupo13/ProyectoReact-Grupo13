@@ -29,10 +29,16 @@
 
 .peliculasCard_textoLight {
     color: var(--light-color-900);
+    text-decoration: none !important;
 
     position: relative;   /* Linea agregada para el "Add Favorites" */
 }
 
+
+.peliculasCard_textoLight :hover {
+    text-decoration: none !important;
+
+}
 
 @media(max-width:560px){
     .peliculasImage{

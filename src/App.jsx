@@ -15,7 +15,7 @@ import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulo
 
 
 // Estilos: 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+//import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 
 function App() {

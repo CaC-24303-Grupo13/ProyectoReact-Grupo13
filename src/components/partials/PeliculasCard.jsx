@@ -37,7 +37,7 @@ export const PeliculasCard = ({cardItemData}) => {
         <Card.Img variant="top" src={cardItemData.poster_path != null
             ? `https://image.tmdb.org/t/p/w500${cardItemData.poster_path}`
             : `/images/emptyPoster.svg`} />
-        <Card.Body style={{textDecoration: "none !important"}}>
+        <Card.Body>
           <Card.Text className='peliculasCard_textoLight'>
             <h3>{cardItemData.title}</h3>
             <p>Puntuacion: {(cardItemData.vote_average).toFixed(1)}</p>

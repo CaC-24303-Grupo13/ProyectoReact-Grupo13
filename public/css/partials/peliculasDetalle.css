@@ -8,8 +8,8 @@
 
 
 .peliculasDetalle__loading,
-.peliculasGrilla__server-down,
-.peliculasGrilla__server-error {
+.peliculasDetalle__server-down,
+.peliculasDetalle__server-error {
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -30,28 +30,6 @@
     height: 40rem;
     width: 25rem;
 }
-
-
-
-
-
-
-.peliculasGrilla__ItemsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.peliculasDetalle__loading,
-.peliculasDetalle__server-down,
-.peliculasDetalle__server-error {
-    border: solid 2px blue;
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-}
-
-
 
 .peliculasDetalle__server-down-img{
     height: 35rem;

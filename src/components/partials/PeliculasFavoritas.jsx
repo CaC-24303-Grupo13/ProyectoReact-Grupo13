@@ -9,7 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulo
 import Spinner from 'react-bootstrap/Spinner';
 
 //import { getDataMovieDB } from '../../utils/conexionAPI';     // Ya no lo requerimos porque ahora importamos la funcion que directamente nos entrega el array de favoritas
-import { getPeliculasFavoritas, addToFavorites } from '../../utils/getFavorites';   // aqui importamos la funcion que nos entrega el array de favoritas
+import { getPeliculasFavoritas, checkFavoriteStatus } from '../../utils/getFavorites';   // aqui importamos la funcion que nos entrega el array de favoritas
 
 
 import { PeliculasCard } from "./PeliculasCard"
@@ -42,7 +42,15 @@ const listarPeliculas = async () => {
             try {
 
                 const { dataPelis, isLoadingApiData } = await getPeliculasFavoritas(fbLogedUser.email);
-                setPeliculasFavoritas(dataPelis);
+
+                const peliculasYfavoriteStatus = await Promise.all(
+                    dataPelis.map(async (pelicula) => {
+                        const favoriteStatus = await checkFavoriteStatus(fbLogedUser.email, pelicula.id);
+                        return { ...pelicula, isFavorite: favoriteStatus };
+                    })
+                );
+
+                setPeliculasFavoritas(peliculasYfavoriteStatus);
                 setIsLoading(isLoadingApiData);
                 setmovieDBisWorking(true)       // Estos valores si queremos usarlos habria que hacer que el "getFavorites.js" nos lo pase hacia aqui
                 setmovieDBisDown(false)         // Estos valores si queremos usarlos habria que hacer que el "getFavorites.js" nos lo pase hacia aqui
@@ -107,7 +115,7 @@ useEffect(() => {
                                                             : (
                                                                 peliculasFavoritas.map((pelicula) => (
                                                                                             <Link to={`/detallepelicula/${pelicula.id}`} key={pelicula.id}>
-                                                                                                <PeliculasCard cardItemData={pelicula}></PeliculasCard>
+                                                                                                <PeliculasCard cardItemData={pelicula} cardItemDataFavoriteStatus={pelicula.isFavorite}></PeliculasCard>
                                                                                             </Link>
                                                                                             ))
                                                                 )

@@ -58,7 +58,7 @@ export const Buscador = () => {
         {/* Al presionar submit se invoca la funcion "onSubmitSearchForm" dandole como argumento el evento capturado (ir a Linea 44) */}
         <form className="buscador__form" onSubmit={(event) => onSubmitSearchForm(event)}>
             
-            <input type="text" name="searchInput" onChange={(event) => onInputSearchChange(event)} value={searchInput} />
+            <input type="text" name="searchInput" onChange={(event) => onInputSearchChange(event)} value={searchInput} required/>
             <button type="submit">Buscar</button>
             
         </form>

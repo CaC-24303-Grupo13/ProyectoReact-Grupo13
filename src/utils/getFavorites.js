@@ -1,7 +1,7 @@
 
 import { db } from "./firebaseCredentials";            //  Importamos la instancia del servicio incializado con getFirestore y guardado en  la constante db
-import { collection, query, where, getDocs, addDoc, Timestamp } from 'firebase/firestore';             //  Importamos los modulos/funciones a utilizar de Firebase Firestore
-import  SweetAlertConfig from './swal2.config.js';
+import { collection, query, where, getDocs, addDoc, Timestamp, deleteDoc, doc } from 'firebase/firestore';             //  Importamos los modulos/funciones a utilizar de Firebase Firestore
+
 import { getDataMovieDB } from "./conexionAPI";     // Importamos la consulta a la API
 
 // Sweet Alert
@@ -91,7 +91,7 @@ export const getPeliculasFavoritas = async (idUsuario) => {
 export const addToFavorites = async (userID, movieID) => {
 
     // Referenciamos la Coleccion (tabla) donde se guardaran los docuumentos (registros) que indican Peliculas Favoritas de los Usuarios.
-    const usuariosCollecton = collection(db, "favoritasUsuarios");
+    const favoritasCollection = collection(db, "favoritasUsuarios");
 
     // Creamos un objeto que almacena el "momento actual" para despues de el obtener la hora con el metodo .getTime()
     const now = new Date();
@@ -105,18 +105,106 @@ export const addToFavorites = async (userID, movieID) => {
 
     try {
 
-        await addDoc(usuariosCollecton, favoriteDataToSave)
+        await addDoc(favoritasCollection, favoriteDataToSave)
         //alert("Pelicula Agregada")
-        SweetAlertConfig.alertaCheck("La pelicula se agrego a Favoritas")
+        MySwal.fire({
+            position: "center",
+            icon: "success",
+            title: "Su pelicula fue agregada a Favoritos",
+            showConfirmButton: false,
+            timer: 1500
+        })
         
 
     } catch (error) {
 
         console.error('Error al obtener las películas favoritas', error);
         //alert("Adicion Fallida")
-
-        SweetAlertConfig.alertaError("error","No pudimos agregar su pelicula")
+        MySwal.fire({
+            position: "center",
+            icon: "success",
+            title: "No pudimos Agregar su Pelicula",
+            showConfirmButton: false,
+            timer: 1500
+        })
 
     }
+
+};
+
+
+
+
+
+
+export const removeFromFavorites = async (userID, movieID) => {
+
+    // Referenciamos la Coleccion (tabla) donde se guardaran los docuumentos (registros) que indican Peliculas Favoritas de los Usuarios.
+    const favoritasCollection = collection(db, "favoritasUsuarios");
+
+    // creamos una consulta para obtener documentos donde el campo "identificadorUsuario" sea igual a un determinado valor
+    const queryString = query(favoritasCollection, 
+                                                    where('identificadorUsuario', '==', userID), 
+                                                    where('idPeliculaFavorita', '==', movieID)
+                                                );
+
+    // obtenemos los documentos que cumplen con el criterio de consulta
+    const querySnapshot = await getDocs(queryString);          
+    
+    // recorremos los documentos que obtuvimos (Solo 1 deberia cumplir el criterio de la consulta)
+    querySnapshot.forEach((document) => {
+
+
+        try {
+
+            deleteDoc(doc(favoritasCollection, document.id))
+            //alert("Pelicula Agregada")
+            MySwal.fire({
+                position: "center",
+                icon: "success",
+                title: "Quitaste la Pelicula de Favoritos",
+                showConfirmButton: false,
+                timer: 1500
+            })
+            
+    
+        } catch (error) {
+    
+            console.error('Error al obtener las películas favoritas', error);
+            //alert("Adicion Fallida")
+            MySwal.fire({
+                position: "center",
+                icon: "success",
+                title: "No pudimos quitar su Pelicula",
+                showConfirmButton: false,
+                timer: 1500
+            })
+    
+        }
+
+    });
+
+};
+
+
+
+
+
+export const checkFavoriteStatus = async (userID, movieID) => {
+
+    // Referenciamos la Coleccion (tabla) donde se guardaran los docuumentos (registros) que indican Peliculas Favoritas de los Usuarios.
+    const favoritasCollection = collection(db, "favoritasUsuarios");
+
+    // creamos una consulta para obtener documentos donde el campo "identificadorUsuario" sea igual a un determinado valor
+    const queryString = query(favoritasCollection, 
+                                                    where('identificadorUsuario', '==', userID), 
+                                                    where('idPeliculaFavorita', '==', movieID)
+                                                );
+
+    // obtenemos los documentos que cumplen con el criterio de consulta
+    const querySnapshot = await getDocs(queryString);          
+    
+    // retornamos true si existen documentos que cumplan el criterio, false si no existen
+    return !querySnapshot.empty; 
 
 };

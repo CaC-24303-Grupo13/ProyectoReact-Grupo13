@@ -3,16 +3,16 @@ import Card from 'react-bootstrap/Card';
 
 
 
-import { addToFavorites } from '../../utils/getFavorites';    //  Importamos la funcion creada en el Helper o almacenador de funciones de favoritos
+import { addToFavorites, removeFromFavorites } from '../../utils/getFavorites';    //  Importamos la funcion creada en el Helper o almacenador de funciones de favoritos
 import { db, auth } from "../../utils/firebaseCredentials";   //  Importamos la instancia del servicio incializado con getAuth y guardado en la constante auth
 import { onAuthStateChanged } from "firebase/auth";           //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
 import { useState } from 'react';
 
 
-export const PeliculasCard = ({cardItemData}) => {
+export const PeliculasCard = ({cardItemData, cardItemDataFavoriteStatus}) => {
 
 
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(cardItemDataFavoriteStatus)
 
   const addFavoriteClickHandler = (event, movieId) => {
     event.stopPropagation();  // evitamos que se propague el evento de clic hacia arriba
@@ -20,10 +20,16 @@ export const PeliculasCard = ({cardItemData}) => {
       onAuthStateChanged(auth, async (fbLogedUser) => {   //onAuthStateChanged: función de Firebase que escucha los cambios en el estado de autenticación. Cuando se detecta un cambio (LogIn o LogOut), ejecuta la función de devolución de llamada que le pasas como segundo argumento (Callback).
         addToFavorites(fbLogedUser.email, movieId)
       });
-      setIsFavorite(!isFavorite)
+      setIsFavorite(!isFavorite)  // Invertimos el estado del corazon
   };
 
   const removeFavoriteClickHandler = (event, movieId) => {
+    event.stopPropagation();  // evitamos que se propague el evento de clic hacia arriba
+    event.preventDefault();   // evitamos el comportamiento por defecto de recargar la pagina
+    onAuthStateChanged(auth, async (fbLogedUser) => {   //onAuthStateChanged: función de Firebase que escucha los cambios en el estado de autenticación. Cuando se detecta un cambio (LogIn o LogOut), ejecuta la función de devolución de llamada que le pasas como segundo argumento (Callback).
+      removeFromFavorites(fbLogedUser.email, movieId)
+    });
+    setIsFavorite(!isFavorite)  // Invertimos el estado del corazon
   };
 
 

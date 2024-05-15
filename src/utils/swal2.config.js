@@ -1,6 +1,6 @@
 /*MODIFICACIONES SWEET ALERT 2*/
 import Swal from 'sweetalert2';
-import "../../public/css/partials/alerts.css"
+// import "../../public/css/partials/alerts.css"            (Este no se importa aqui, va en el "index.css")
 
 //Iconos utilizables: "info", "error"
 

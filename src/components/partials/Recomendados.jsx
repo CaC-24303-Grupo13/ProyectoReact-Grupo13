@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom"
 
-import "../../../public/css/partials/recomendados.css"
+//  import "../../../public/css/partials/recomendados.css"    (Este no se importa aqui, va en el "index.css")
 
 const API_BASE_URL = import.meta.env.VITE_MOVIEDB_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_MOVIEDB_API_KEY;
@@ -46,6 +47,7 @@ const Recomendados = () => {
   return (
     <div className="recomendados__container">
       {movies.map((movie) => (
+        <Link to={`/detallepelicula/${movie.id}`} key={movie.id}>
         <div key={movie.id} className="card">
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -53,6 +55,7 @@ const Recomendados = () => {
             className="card-img-top"
           />
         </div>
+        </Link>
       ))}
     </div>
   );

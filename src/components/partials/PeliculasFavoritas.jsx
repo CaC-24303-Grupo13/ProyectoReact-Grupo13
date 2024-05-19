@@ -7,7 +7,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
 
 //import { getDataMovieDB } from '../../utils/conexionAPI';     // Ya no lo requerimos porque ahora importamos la funcion que directamente nos entrega el array de favoritas
-import { getPeliculasFavoritas, addToFavorites } from '../../utils/getFavorites';   // aqui importamos la funcion que nos entrega el array de favoritas
+import { getPeliculasFavoritas, checkFavoriteStatus } from '../../utils/getFavorites';   // aqui importamos la funcion que nos entrega el array de favoritas
 
 
 import { PeliculasCard } from "./PeliculasCard"
@@ -40,7 +40,15 @@ const listarPeliculas = async () => {
             try {
 
                 const { dataPelis, isLoadingApiData } = await getPeliculasFavoritas(fbLogedUser.email);
-                setPeliculasFavoritas(dataPelis);
+
+                const peliculasYfavoriteStatus = await Promise.all(
+                    dataPelis.map(async (pelicula) => {
+                        const favoriteStatus = await checkFavoriteStatus(fbLogedUser.email, pelicula.id);
+                        return { ...pelicula, isFavorite: favoriteStatus };
+                    })
+                );
+
+                setPeliculasFavoritas(peliculasYfavoriteStatus);
                 setIsLoading(isLoadingApiData);
                 setmovieDBisWorking(true)       // Estos valores si queremos usarlos habria que hacer que el "getFavorites.js" nos lo pase hacia aqui
                 setmovieDBisDown(false)         // Estos valores si queremos usarlos habria que hacer que el "getFavorites.js" nos lo pase hacia aqui
@@ -62,55 +70,57 @@ const listarPeliculas = async () => {
 };
 
 
-
-
-
-
-
 useEffect(() => {
     listarPeliculas();
 }, []);
 
 
   return (
-    <>
-        <h2>Peliculas Favoritas</h2>
+ 
+        <main className="app_container">
+            
+            <h2 className="peliculasFavoritas__title">Peliculas Favoritas</h2>
 
-        <div className="peliculasGrilla__ItemsContainer">
+            <div className="peliculasFavoritas__ItemsContainer">
 
-            {isLoading === true     // evaluamos si "isLoadin" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
-                    
-                    ? (
-                        <div className="peliculasGrilla__loading">
-                            <h3>C a r g a n d o  . . .</h3>
-                            <img className="peliculasGrilla__loading-img" src={`/images/loading.gif`} alt="Imagen Pelicula" />
-                        </div>
-                        )  
-                    : movieDBisDown === true         // evaluamos si "movieDBisDown" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
-                    
-                                        ? (
-                                            <div className="peliculasGrilla__server-down">
-                                                <h3>El Servidor está caído... Intente más tarde..</h3>
-                                                <img className="peliculasGrilla__server-down-img" src={`/images/serverDown.jpg`} alt="TMDB No Response"/>
-                                            </div>
-                                        )
-                                        : movieDBisWorking === false         // Este punto debe ser revisado ya que para mi esta funcionando a la inversa, ver nota linea 42
-                                                            ? (
-                                                                <div className="peliculasGrilla__server-error">
-                                                                    <h3>El Servidor no responde correctamente... Intente más tarde..</h3>
-                                                                    <img className="peliculasGrilla__server-error-img" src={`/images/TMDBerror.jpg`} alt="TMDB No Response" />
-                                                                </div>
-                                                                ) 
-                                                            : (
-                                                                peliculasFavoritas.map((pelicula) => (
-                                                                                            <Link to={`/detallepelicula/${pelicula.id}`} key={pelicula.id}>
-                                                                                                <PeliculasCard cardItemData={pelicula}></PeliculasCard>
-                                                                                            </Link>
-                                                                                            ))
-                                                                )
-            }
 
-        </div>
-    </>
+                {isLoading === true     // evaluamos si "isLoadin" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
+                        
+                        ? (
+                            <div className="peliculasFavoritas__loading">
+                                <h3>C a r g a n d o  . . .</h3>
+                                <img className="peliculasFavoritas__loading-img" src={`/images/loading.gif`} alt="Imagen Pelicula" />
+                            </div>
+                            )  
+                        : movieDBisDown === true         // evaluamos si "movieDBisDown" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
+                        
+                                            ? (
+                                                <div className="peliculasFavoritas__server-down">
+                                                    <h3>El Servidor está caído... Intente más tarde..</h3>
+                                                    <img className="peliculasFavoritas__server-down-img" src={`/images/serverDown.jpg`} alt="TMDB No Response"/>
+                                                </div>
+                                            )
+                                            : movieDBisWorking === false         // Este punto debe ser revisado ya que para mi esta funcionando a la inversa, ver nota linea 42
+                                                                ? (
+                                                                    <div className="peliculasFavoritas__server-error">
+                                                                        <h3>El Servidor no responde correctamente... Intente más tarde..</h3>
+                                                                        <img className="peliculasFavoritas__server-error-img" src={`/images/TMDBerror.jpg`} alt="TMDB No Response" />
+                                                                    </div>
+                                                                    ) 
+                                                                    : (
+                                                                        peliculasFavoritas.map((pelicula) =>  (
+                                                                                            // <div className="peliculasFavoritas__CardContainer" key={pelicula.id}>
+                                                                                                    // <Link to={`/detallepelicula/${pelicula.id}`} >
+                                                                                                        <PeliculasCard cardItemData={pelicula} cardItemDataFavoriteStatus={pelicula.isFavorite} key={pelicula.id}></PeliculasCard>
+                                                                                                    // </Link>
+                                                                                            // </div>
+                                                                                                            )) // Cierre .map
+                                                                    )
+                }
+
+            </div>
+
+        </main>
+
   )
 }

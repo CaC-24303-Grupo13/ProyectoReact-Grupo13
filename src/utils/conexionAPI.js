@@ -41,7 +41,7 @@ export const getDataMovieDB = async (endpointURL, pagenumber, language, searchVa
         // Forzamos una demora para retornar la respuesta de la API  (Es solo para ver el "cargando...")
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        console.log(fetchData);      // Habilitar este console log para hacer los estilos asi se ve el JSON de que info recibimos y podemos usar
+        //console.log(fetchData);      // Habilitar este console log para hacer los estilos asi se ve el JSON de que info recibimos y podemos usar
 
         return {
             data: fetchData,

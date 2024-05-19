@@ -7,10 +7,7 @@ export const ListPageFavoritas = ({endpointRUTA}) => {
  
   return (
 
-      <div  className="listPage__container">
-
-        {/* Leyenda que indica que componente es, Esto se BORRA */}
-        <span style={{fontSize: '.8rem', color: 'green'}}>VERDE: Vista Tendencia Diaria Page</span>
+      <div  className="listPageFavoritas__container">
         
           <Header></Header>
           

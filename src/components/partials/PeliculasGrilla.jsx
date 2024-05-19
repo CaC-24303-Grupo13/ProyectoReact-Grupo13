@@ -12,6 +12,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 
+import { checkFavoriteStatus } from '../../utils/getFavorites';   // aqui importamos la funcion que nos entrega el array de favoritas
+import { auth } from "../../utils/firebaseCredentials";            //  Importamos la instancia del servicio incializado con getFirestore y guardado en  la constante db
+import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
 
 export const PeliculasGrilla = ({endpointGRILLA}) => {
 
@@ -34,21 +37,58 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
                     :searchValue = null
 
 
+  // Como se nos ejecutaba antes la consulta a la API que necesitaba el "fbLogedUser.email" y aun no estaba definido nos quedaba en un permanente cargando
+// por ello pasamos el objeto que recibimos de la funcion "onAuthStateChanged" como argumento a una callback anonima y asincrona donde verificaremos
+// si dicho objeto existe, y en caso afirmativo se realizara la consulta a la API para obtener las pelis, caso contrario deberemos manejar el error.
+const listarPeliculas = async () => {
+
+  onAuthStateChanged(auth, async (fbLogedUser) => {
+      //onAuthStateChanged: función de Firebase que escucha los cambios en el estado de autenticación. Cuando se detecta un cambio (LogIn o LogOut), ejecuta la función de devolución de llamada que le pasas como segundo argumento (Callback).
+
+      if (fbLogedUser) {
+
+          try {
+
+              //const { dataPelis, isLoadingApiData } = await getPeliculasFavoritas(fbLogedUser.email);
+              const { data, isLoadingApiData, isWorkingApi, movieDBdown } = await getDataMovieDB(APIendpoint, pageNumber, APIlanguage, searchValue)
+              
+              const dataYfavoriteStatus = await Promise.all(
+                data.results.map(async (pelicula) => {
+                  const favoriteStatus = await checkFavoriteStatus(fbLogedUser.email, pelicula.id);
+                      return { ...pelicula, isFavorite: favoriteStatus };
+                  })
+              );
+
+              setapiData(dataYfavoriteStatus);      // actualizamos (guardamos) los resultados de peliculas
+              settotalPages(data.total_pages);      // actualizamos (guardamos) el total de paginas
+              setmovieDBisWorking(isWorkingApi)     // a revisar porque esta funcionando a la inversa, ver nota en "conexionAPI.js" linea 60
+              setmovieDBisDown(movieDBdown)         // actualizamos (guardamos) si MovieDB esta caida o funcionando
+              setIsLoading(isLoadingApiData)        // establecemos que "isLoading" es false (termino) para que ahora muestre la data
+
+          } catch (error) {
+
+              console.error('Error al obtener las películas:', error);
+              setIsLoading(false);
+
+          }
+
+      } else {
+          
+          console.error('Error al obtener las películas');
+          setIsLoading(false);
+
+      }
+  });
+};
+
+
+
+
+
   useEffect( () => {    // Como primer argumento del useEffect pasamos la funcion que queremos ejecutar, en este caso nuestra consulta a la API, a esto lo llamaremos evento secundario
                         //    este evento secundario como minimo se ejecutara 1 vez al cargar el componente, luego, que se ejecute mas veces dependera del array pasado como 2° argumento
-    
-    setIsLoading(true)    // establecemos que "isLoading" es true para que muestre el spinner mientras sucede el evento secundario
 
-    const fetchData = async () => {       // definimos la arrow function que es la consulta a la API
-      const { data, isLoadingApiData, isWorkingApi, movieDBdown } = await getDataMovieDB(APIendpoint, pageNumber, APIlanguage, searchValue)
-      setapiData(data.results);             // actualizamos (guardamos) los resultados de peliculas
-      settotalPages(data.total_pages);      // actualizamos (guardamos) el total de paginas
-      setmovieDBisWorking(isWorkingApi)     // a revisar porque esta funcionando a la inversa, ver nota en "conexionAPI.js" linea 60
-      setmovieDBisDown(movieDBdown)         // actualizamos (guardamos) si MovieDB esta caida o funcionando
-      setIsLoading(isLoadingApiData)        // establecemos que "isLoading" es false (termino) para que ahora muestre la data
-    };
-
-    fetchData();    // hacemos que la arrow function definida se ejecute
+    listarPeliculas();
 
   }, [APIendpoint, pageNumber])  // variables que estamos observando (dependencia) para ver si cambian y asi ejecutar nuevamente el evento secundario
   //    si pasaramos un array vacio, no estariamos vigilando el cambio de nada. (solo dispararia el evento secundario 1 vez al cargar el componente inicialmente)
@@ -57,6 +97,7 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
   // Creamos una fx que establezca la pagina actual en el valor que recibe como parametro, y pasamos la funcion mediante la prop al componente hijo (paginador)
   const onCambiarPagina = (paginaActual) => {
     setpageNumber(paginaActual)
+    setIsLoading(true)
   }    
   
 
@@ -102,9 +143,11 @@ export const PeliculasGrilla = ({endpointGRILLA}) => {
                                                                 : (
                                                                     apiData.map((itemData) => (
                                                                                               <Link to={`/detallepelicula/${itemData.id}`} key={itemData.id}>
-                                                                                                  <PeliculasCard cardItemData={itemData}></PeliculasCard>
+                                                                                                  <PeliculasCard cardItemData={itemData} cardItemDataFavoriteStatus={itemData.isFavorite}></PeliculasCard>
                                                                                               </Link>
                                                                                               ))
+
+                                                                    
                                                                   )
               }
 

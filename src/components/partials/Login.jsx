@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom/dist";
 import { useState } from "react";
-import SweetAlertConfig from '../../../../swal2.config';
+import SweetAlertConfig from "../../utils/swal2.config";
 import { auth } from "../../utils/firebaseCredentials";       //  Importamos la instancia del servicio incializado con getAuth y guardado en  la constante auth
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";    //  Importamos los modulos/funciones a utilizar de Firebase Authentication 
                                                                 //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no

@@ -13,10 +13,6 @@ import { onAuthStateChanged } from "firebase/auth";    //  Importamos los modulo
                                                                 //    onAuthStateChanged: Saber el estado de si un usuario esta logueado o no
 
 
-// Estilos: 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-
-
 function App() {
 
   // Creamos un observador global para que verifique si hay un usuario Logeado o no

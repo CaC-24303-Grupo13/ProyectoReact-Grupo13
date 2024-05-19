@@ -1,104 +1,110 @@
-
-
-
 /* Desarrollo de estilos para el Componente Header */
 
+header{
+    width: 100vw;
+    background-image: linear-gradient(to bottom, rgba(2, 2, 15, 0.8) 80%, rgba(0, 0, 0, 0));
+}
+
 .header__container{
-    
-    padding: 0 1rem 1rem 1rem;
-    margin: 0.5rem 0;
+    /* border: solid 2px crimson; */
+    padding: 1rem;
     position: relative;
-    
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-
-.header__userLogedCard{
-    border-radius: 10px;
-    background-color: rgba(0, 0, 139, 0.3);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    max-width: 300px;
-    min-width: 200px;
-    width: 80%;
-    margin: 3px;
-    padding: 0rem; 
-    color: white; 
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
-}
-.header__userLogedCard button{
-    position: absolute;
-    background-color: #f0f0f0;
-    color: #333;
-   
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;  
-}
-
-.header__title{
-    text-align: center;
-    margin-bottom: 2rem;
-    color: red;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 3); 
+.header__logoContainer{
+    /* border: solid 2px green; */
+    width: 42rem;
+    margin: 0 auto;
 }
 
 .header__navbar{
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    
+    flex-wrap: wrap;
+    justify-content: space-between;   
 }
+
 .header__navbar_button {
-    flex-shrink: 1;
-    margin-left: 10px;
-    padding: 0 20px;
-    width: auto;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px; /* Redondear más los botones */
-    background-color: #ffcc00;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(251, 227, 8, 0.5); /* Ajustamos la sombra */
-    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+    /* border: solid 2px yellow; */
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #fff;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+    padding: 1rem;
 }
 
 .header__navbar_button:hover {
-    background-color: #ef9d46;
-    cursor: pointer; /* Cambio del cursor al pasar por encima */
+    color: #0fb5de;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
+
+.header__userLogedCard{
+    /* border: solid 2px sandybrown; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem 1rem 0 0;
+    padding: 1rem; 
+    border-radius: .5rem;
+    /* background-color: rgba(0, 0, 139, 0); */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-family: Inter;
+    color: white; 
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+}
+
+
+ .header__userLogedCardButton{
+    font-family: Inter;
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+/*
 
 @media screen and (max-width: 1383px) {
     .header__navbar {
-        flex-wrap: wrap; /* Permitir que los botones se envuelvan */
-        justify-content: center; /* Centrar los botones */
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .header__navbar_button {
-        margin: 5px; /* Espacio entre los botones */
+        margin: 5px;
     }
 }
 
-/* Media query para pantallas más pequeñas */
+
 @media screen and (max-width: 1010px) {
     .header__navbar {
         justify-content: flex; 
     }
 
     .header__navbar_button {
-        padding: 0 15px; /* Reducir el espacio horizontal del botón */
-        font-size: 14px; /* Reducir el tamaño del texto */
-        border-radius: 15px; /* Redondear aún más los botones */
+        padding: 0 15px;
+        font-size: 14px;
+        border-radius: 15px;
         height: 30px;
         line-height: 30px;
     }
 }
+
+*/

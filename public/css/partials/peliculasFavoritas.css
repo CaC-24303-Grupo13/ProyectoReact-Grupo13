@@ -1,0 +1,66 @@
+
+/* Desarrollo de estilos para el Componente Grilla de Peliculas */
+
+main{
+    flex-grow: 1;                   /* Esta Propiedad */
+    width: 100%;
+}
+
+.peliculasFavoritas__container {
+    /* border: solid 2px red; */
+    padding: 0 10rem 10rem 10rem;
+    /* background-color: midnightblue; */
+}
+
+.peliculasFavoritas__title{
+    font-size: 3rem;
+    color: #d6d6d6;
+    padding-left: 3rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.peliculasFavoritas__ItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    /* justify-content: space-between; */
+    gap: 1rem;
+}
+
+.peliculasFavoritas__CardContainer{
+    /* margin: 1rem; */
+}
+
+.peliculasFavoritas__loading,
+.peliculasFavoritas__server-down,
+.peliculasFavoritas__server-error {
+
+
+    display: flex;                  /* Esta Propiedad */
+    flex-direction: column;
+    justify-content: center;        /* Esta Propiedad */
+    align-items: center;            /* Esta Propiedad */
+}
+
+.peliculasFavoritas__loading-img{
+    height: 5rem;
+    width: 5rem;
+}
+
+.peliculasFavoritas__server-down-img{
+    height: 35rem;
+    width: 52rem;
+}
+
+.peliculasFavoritas__server-error-img{
+    height: 22rem;
+    width: 45rem;
+}
+
+.peliculasFavoritas_textoLight {
+    color: var(--light-color-900);
+
+}
+
+

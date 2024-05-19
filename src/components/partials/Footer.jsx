@@ -7,21 +7,34 @@ export const Footer = () => {
 
   return (
 
-    <div className="footer__container">
+    <footer>
+      <div className="app_container footer__container">
         
-       
-        <ul className="footer__navbar">
-            
-            {/* Menues OPCIONALES, agregar o quitar los necesarios */}
+          <nav className="footerNavbar">
+            <ul>
+              <li><Link to="/tendenciaDiaria">Tendencia Hoy</Link></li>
+              <li><Link to="/tendenciaSemanal">Tendencia Semanal</Link></li>
+              <li><Link to="/cartelera">En Cartelera</Link></li>
+              <li><Link to="/estrenos">Proximos Estrenos</Link></li>
+              <li><Link to="/topRankin">Mejores Puntuadas</Link></li>
+            </ul>
+          </nav>
 
-            <Link to="/tendenciaDiaria"><Button variant="light" className="footer__navbar_button">Tendencia Hoy</Button></Link>
-            <Link to="/tendenciaSemanal"><Button variant="light" className="footer__navbar_button">Tendencia Semanal</Button></Link>
-            <Link to="/cartelera"><Button variant="light" className="footer__navbar_button">En Cartelera</Button></Link>
-            <Link to="/estrenos"><Button variant="light" className="footer__navbar_button">Proximos Estrenos</Button></Link>
-            <Link to="/topRankin"><Button variant="light" className="footer__navbar_button">Mejores Puntuadas</Button></Link>
+      </div>
+    </footer>
 
-        </ul>
-
-    </div>
+    // <footer className="footer">
+    //   <div className="app_container footer__container">
+    //     <nav className="footer__nav shift">
+    //       <ul className="footer__ul">
+    //         <li className="footer__li"><Link to="/tendenciaDiaria" className="footer__link">Tendencia Hoy</Link></li>
+    //         <li className="footer__li"><Link to="/tendenciaSemanal" className="footer__link">Tendencia Semanal</Link></li>
+    //         <li className="footer__li"><Link to="/cartelera" className="footer__link">En Cartelera</Link></li>
+    //         <li className="footer__li"><Link to="/estrenos" className="footer__link">Proximos Estrenos</Link></li>
+    //         <li className="footer__li"><Link to="/topRankin" className="footer__link">Mejores Puntuadas</Link></li>
+    //       </ul>
+    //     </nav>
+    //   </div>
+    // </footer>
   )
 }

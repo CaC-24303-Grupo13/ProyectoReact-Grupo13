@@ -2,37 +2,52 @@
 /* Desarrollo de estilos para el Componente Card de Pelicula */
 
 .peliculasCard__container {
-    
-    /* padding: 1rem; */
     width: 200px;
-    list-style: none;
     text-align: center;
-    
-    /* height: 400px; */
     max-height: 400px;
     overflow: hidden;
-    border-radius: 10px;
-
-    /* background-color: silver; */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-
+    border-radius: 1rem;
+    box-shadow: 5px 5px 15px rgb(24, 24, 24);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 
+.peliculasCard__container:hover {
+scale: 1.05;
+z-index: 1;
+-webkit-box-shadow: 0px 0px 5px 5px rgba(122,121,89,1);
+-moz-box-shadow: 0px 0px 5px 5px rgba(122,121,89,1);
+box-shadow: 0px 0px 5px 5px rgba(122,121,89,1);
+}
+
+.peliculasCard__poster{
+    padding: .2rem;
+    margin: 0;
+}
+
 .peliculasCard__poster-img{
-    border-radius: 10px;
-    height: 25rem;
-    width: 18rem;
-    
+    border-radius: 1rem 1rem 0 0 ;
 }
 
 .peliculasCard_textoLight {
     color: var(--light-color-900);
-
-    position: relative;   /* Linea agregada para el "Add Favorites" */
 }
 
+.peliculasCard__Favorite{
+    position: absolute;
+    bottom: .8rem;
+    left: .8rem;
+    font-size: 2rem;
+}
+
+.favoriteTrue{
+    color: crimson;
+}
+
+.favoriteFalse{
+    color: gainsboro;
+}
 
 @media(max-width:560px){
     .peliculasImage{

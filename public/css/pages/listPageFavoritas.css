@@ -1,0 +1,8 @@
+
+/* Desarrollo de estilos para la vista de la Home */
+
+.listPageFavoritas__container{
+    display: flex;                  /* Esta Propiedad */
+    flex-direction: column;         /* Esta Propiedad */
+    min-height: 100vh;              /* Esta Propiedad */
+}

@@ -1,23 +1,41 @@
 
 /* Desarrollo de estilos para el Componente Grilla de Peliculas */
 
-.peliculasDetalle__container {
-    /* border: solid 2px blue; */
-    padding: 0 1rem 1rem 1rem;
+.peliculasDetalle__main {
+    flex-grow: 1;                   /* Esta Propiedad */
+    width: 100%;
+
+    display: flex;                  /* Esta Propiedad */
+    flex-direction: column;         /* Esta Propiedad */
 }
 
+.peliculasDetalle__title{
+    font-size: 3rem;
+    color: #d6d6d6;
+    padding-left: 3rem;
+    margin: 1rem 0 1.5rem;
+}
 
 .peliculasDetalle__loading,
 .peliculasGrilla__server-down,
 .peliculasGrilla__server-error {
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
+    display: flex;                  /* Esta Propiedad */
+    flex-direction: column;
+    justify-content: center;        /* Esta Propiedad */
+    align-items: center;            /* Esta Propiedad */
+    gap: 3rem;
+
+    flex-grow: 1;
 }
 
 .peliculasDetalle__loading-img{
     height: 5rem;
     width: 5rem;
+}
+
+.peliculasDetalle__spinnerContainer{
+    display: flex;
+    gap: 1rem;
 }
 
 .peliculasDetalle__flex{
@@ -45,7 +63,6 @@
 .peliculasDetalle__loading,
 .peliculasDetalle__server-down,
 .peliculasDetalle__server-error {
-    border: solid 2px blue;
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -68,3 +85,5 @@
     color: var(--light-color-900);
 
 }
+
+

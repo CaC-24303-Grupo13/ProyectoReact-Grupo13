@@ -10,6 +10,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Stack from 'react-bootstrap/Stack';
 
 
 
@@ -65,52 +66,71 @@ export default function PeliculasDetalle() {
   
   return (
 
+    <main className="app_container peliculasDetalle__main">
 
-    <div className="peliculasDetalle__container">
+          {/* Leyenda que indica que componente es, Esto se BORRA */}
+          {/* <span style={{fontSize: '.8rem', color: 'blue'}}>AZUL: Componente Detalles de Pelicula</span> */}
+        
+          { isLoading == true     // evaluamos si "isLoading" es true, como asi lo establecimos se mostrara "?" hasta que se actualiza el useState del mismo y pasamos al ":"
 
-        {/* Leyenda que indica que componente es, Esto se BORRA */}
-        {/* <span style={{fontSize: '.8rem', color: 'blue'}}>AZUL: Componente Detalles de Pelicula</span> */}
-       
-        { isLoading == true     // evaluamos si "isLoading" es true, como asi lo establecimos se mostrara "?" hasta que se actualiza el useState del mismo y pasamos al ":"
+              ?   <div className="peliculasDetalle__loading">
+                      <h3 className="peliculasDetalle__title">C a r g a n d o  . . .</h3>
+                      <div className="peliculasDetalle__spinnerContainer">
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                                    <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        </div>
+                  </div>
 
-            ?   <div className="peliculasDetalle__loading">
-                    <h3 className="peliculasDetalle_textoLight">C a r g a n d o  . . .</h3>
-                                <Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/><Spinner animation="grow" className="peliculasDetalle_textoLight"/>
-                </div>
+              :   <div className="container peliculasDetalle__flex">
+                  <Container>
+                    <Row>
+                      <Col sm={4}>
 
-            :   <div className="container peliculasDetalle__flex">
-                <Container>
-                  <Row>
-                    <Col sm={4}>
+                      {/* Aca hacer que el condicional no solo muestre una imagen vacia sino que tambien cuando viene data mala, mostrar que la pelicula no existe o redirigir al home */}
 
-                    {/* Aca hacer que el condicional no solo muestre una imagen vacia sino que tambien cuando viene data mala, mostrar que la pelicula no existe o redirigir al home */}
+                      { movieData.poster_path != null
+                          ?  <Image fluid thumbnail src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt="Imagen Pelicula"/>
+                          :  <Image fluid thumbnail src={`/images/emptyPoster.svg`} alt="Imagen Pelicula" />
+                        }
+                      </Col>
 
-                    { movieData.poster_path != null
-                        ?  <Image fluid thumbnail src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt="Imagen Pelicula"/>
-                        :  <Image fluid thumbnail src={`/images/emptyPoster.svg`} alt="Imagen Pelicula" />
-                    }
-                    </Col>
+                      <Col sm={8} className="peliculasDetalle_textoLight ">
+                              {/* Aca ver que data mostrar, seguramente faltan cosas o sobran cosas */}
 
-                    <Col sm={8} className="peliculasDetalle_textoLight">
-                            {/* Aca ver que data mostrar, seguramente faltan cosas o sobran cosas */}
+                              <h3>{movieData.title}</h3>
+                              <h4>{movieData.tagline}</h4>
+                              <p>Titulo original: {movieData.original_title}</p>
+                              <p>{movieData.overview}</p>
+                                <Button variant="primary" onClick={() => setModalShow(true)}>Ver trailer</Button>
+                                <TrailerModal tituloPelicula={movieData.title} videoTrailer={movieData.video} show={modalShow} onHide={() => setModalShow(false)}/>
+                                
+                              <Stack direction="horizontal" gap={3}>
+                                <div className="p-2 ms-auto">Géneros:</div> 
+                                {movieData.genres.map( genre => (
+                                  <div className="p-2">{genre.name}</div>
+                                ))}
+                              </Stack>
+                              <Stack direction="horizontal" gap={3}>
+                                <div className="p-2 ms-auto">Lanzamiento: {movieData.release_date}</div>
+                                <div className="p-2">Puntuación promedio: {movieData.vote_average}</div>
+                                <div className="p-2">Cantidad puntuaciones: {movieData.vote_count}</div>
+                              </Stack>
 
-                            <h3>{movieData.title}</h3>
-                            <p>{movieData.tagline}</p>
-                            <p>Lanzamiento: {movieData.release_date}</p>
-                            <p>{movieData.overview}</p>
-                            <p>Url ID: {idpelicula}</p>         {/*   Este ID se obtiene desde la URL     */}
-                            <p>Data ID: {movieData.id}</p>      {/*   Este ID se obtiene desde la Data de la API     */}
-                            
-                            <Button variant="primary" onClick={() => setModalShow(true)}>Ver trailer</Button>
-                            <TrailerModal tituloPelicula={movieData.title} videoTrailer={movieData.video} show={modalShow} onHide={() => setModalShow(false)}/>
-                            
-                    </Col>
-                  </Row>
-                </Container>
-                
-                </div>
-        }
-    
-    </div>
+                            {/* <p>Url ID: {idpelicula}</p>    */}      {/*   Este ID se obtiene desde la URL     */}
+                            {/* <p>Data ID: {movieData.id}</p>    */}   {/*   Este ID se obtiene desde la Data de la API     */}
+                              
+                      </Col>
+                    </Row>
+                  </Container>
+                  
+                  </div>
+          }
+      
+    </main>
   )
 }

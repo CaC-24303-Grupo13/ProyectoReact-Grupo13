@@ -7,7 +7,7 @@ export const HomePage = () => {
   
   return (
 
-      <>
+    <div  className="homePage__container">
 
           <Header></Header>
           
@@ -15,6 +15,6 @@ export const HomePage = () => {
 
           <Footer></Footer>
 
-      </>
+    </div>
   )
 }

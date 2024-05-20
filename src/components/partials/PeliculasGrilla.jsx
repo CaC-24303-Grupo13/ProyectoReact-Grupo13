@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
+
 import { getDataMovieDB } from "../../utils/conexionAPI"
 
+import { Buscador } from './Buscador';
 import { PeliculasCard } from "./PeliculasCard"
 import { Paginador } from "./Paginador"
-import { Link } from "react-router-dom"
-
-import { useParams } from "react-router-dom"
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -87,8 +88,9 @@ const listarPeliculas = async () => {
 
   useEffect( () => {    // Como primer argumento del useEffect pasamos la funcion que queremos ejecutar, en este caso nuestra consulta a la API, a esto lo llamaremos evento secundario
                         //    este evento secundario como minimo se ejecutara 1 vez al cargar el componente, luego, que se ejecute mas veces dependera del array pasado como 2° argumento
-
+    setIsLoading(true)
     listarPeliculas();
+
 
   }, [APIendpoint, pageNumber])  // variables que estamos observando (dependencia) para ver si cambian y asi ejecutar nuevamente el evento secundario
   //    si pasaramos un array vacio, no estariamos vigilando el cambio de nada. (solo dispararia el evento secundario 1 vez al cargar el componente inicialmente)
@@ -103,60 +105,75 @@ const listarPeliculas = async () => {
 
   
   return (
-    // Este componente arma la grilla de peliculas, que en base a cada pelicula dentro del JSON mostrara una card como si fuera un item
+
     <>
 
-      <Container fluid>
-        <Row>
-          <Col></Col>
-          <Col><h1 className="peliculasGrilla_textoLight">Catálogo de Peliculas</h1></Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col>
-          <div className="peliculasGrilla__ItemsContainer">
 
-              {isLoading === true     // evaluamos si "isLoadin" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
-                      
-                        ? (
-                            <div className="peliculasGrilla__loading">
-                                <h3 className="peliculasGrilla_textoLight">C a r g a n d o  . . .</h3>
-                                <Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/><Spinner animation="grow" className="peliculasGrilla_textoLight"/>
-                                {/* <img className="peliculasGrilla__loading-img" src={`/images/loading.gif`} alt="Imagen Pelicula" /> */}
-                            </div>
-                          )  
-                        : movieDBisDown === true         // evaluamos si "movieDBisDown" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
-                        
-                                          ? (
-                                              <div className="peliculasGrilla__server-down">
-                                                  <h3 className="peliculasGrilla_textoLight">El Servidor está caído... Intente más tarde..</h3>
-                                                  <img className="peliculasGrilla__server-down-img" src={`/images/serverDown.jpg`} alt="TMDB No Response"/>
-                                              </div>
-                                            )
-                                          : movieDBisWorking === false         // Este punto debe ser revisado ya que para mi esta funcionando a la inversa, ver nota linea 42
-                                                                ? (
-                                                                    <div className="peliculasGrilla__server-error">
-                                                                        <h3 className="peliculasGrilla_textoLight">El Servidor no responde correctamente... Intente más tarde..</h3>
-                                                                        <img className="peliculasGrilla__server-error-img" src={`/images/TMDBerror.jpg`} alt="TMDB No Response" />
-                                                                    </div>
-                                                                  ) 
-                                                                : (
-                                                                    apiData.map((itemData) => (
-                                                                                              <Link to={`/detallepelicula/${itemData.id}`} key={itemData.id}>
-                                                                                                  <PeliculasCard cardItemData={itemData} cardItemDataFavoriteStatus={itemData.isFavorite}></PeliculasCard>
-                                                                                              </Link>
-                                                                                              ))
 
-                                                                    
-                                                                  )
-              }
 
-          </div>
-          {/* incorporamos el componente paginador y como prop pasamos una funcion que sera ejecutada desde paginador (componente hijo) y nos "subira" un valor en el parametro */}
-          <Paginador cambiarPagina={onCambiarPagina} dataActualPage={pageNumber} dataTotalPages={totalPages} ></Paginador>
-          </Col>
-        </Row>
-      </Container>
+
+
+<main className="app_container peliculasGrilla__main">
+
+  <Buscador></Buscador>
+
+  <h2 className="peliculasGrilla__title">Catálogo de Peliculas</h2>
+
+  <div className="peliculasGrilla__ItemsContainer">
+
+
+      {isLoading === true     // evaluamos si "isLoadin" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
+              
+              ? (
+                  <div className="peliculasGrilla__loading">
+                      <h3 className="peliculasGrilla__title">C a r g a n d o  . . .</h3>
+                      <div className="peliculasGrilla__spinnerContainer">
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                        <Spinner animation="grow" className="peliculasGrilla_textoLight"/>
+                      </div>
+                  </div>
+                  )  
+              : movieDBisDown === true         // evaluamos si "movieDBisDown" es true, en caso correcto mostrasmos el "?" y sino entramos al ":"
+              
+                                  ? (
+                                      <div className="peliculasGrilla__server-down">
+                                          <h3>El Servidor está caído... Intente más tarde..</h3>
+                                          <img className="peliculasGrilla__server-down-img" src={`/images/serverDown.jpg`} alt="TMDB No Response"/>
+                                      </div>
+                                  )
+                                  : movieDBisWorking === false         // Este punto debe ser revisado ya que para mi esta funcionando a la inversa, ver nota linea 42
+                                                      ? (
+                                                          <div className="peliculasGrilla__server-error">
+                                                              <h3>El Servidor no responde correctamente... Intente más tarde..</h3>
+                                                              <img className="peliculasGrilla__server-error-img" src={`/images/TMDBerror.jpg`} alt="TMDB No Response" />
+                                                          </div>
+                                                          ) 
+                                                          : (
+                                                            apiData.map((itemData) =>  (
+                                                                      <PeliculasCard cardItemData={itemData} cardItemDataFavoriteStatus={itemData.isFavorite} key={itemData.id}></PeliculasCard>
+                                                              )) // Cierre .map
+                                                            
+                                                            // Posicion donde deberia estar pero no funciona, queda un loading permanente
+                                                            
+                                                          )
+                                                        }
+
+  </div>
+
+  {/* Posicion donde lo pongo y si funciona todo */}
+  {/* // incorporamos el componente paginador y como prop pasamos una funcion que sera ejecutada desde paginador (componente hijo) y nos "subira" un valor en el parametro */}
+                                                        <Paginador cambiarPagina={onCambiarPagina} dataActualPage={pageNumber} dataTotalPages={totalPages} ></Paginador>
+{/* 
+      NOTA:  el error viene por el lado del use effect y la funcion "onCambiarPagina" que trae el valor del modulo hijo llamado "paginador"
+*/}
+  
+
+</main>
     
     </>
   )

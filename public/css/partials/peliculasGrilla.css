@@ -1,50 +1,30 @@
 
 /* Desarrollo de estilos para el Componente Grilla de Peliculas */
 
-.peliculasGrilla__main{
-    flex-grow: 1;                   /* Esta Propiedad */
-    width: 100%;
-
-    display: flex;                  /* Esta Propiedad */
-    flex-direction: column;         /* Esta Propiedad */
-}
-
-.peliculasGrilla__title{
-    font-size: 3rem;
-    color: #d6d6d6;
-    padding-left: 3rem;
-    margin: 1rem 0 1.5rem;
+.peliculasGrilla__container {
+    /* border: solid 2px red; */
+    padding: 0 1rem 1rem 1rem;
+    /*background-color: midnightblue;*/
 }
 
 .peliculasGrilla__ItemsContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1rem;
-
-    flex-grow: 1;
 }
 
 .peliculasGrilla__loading,
 .peliculasGrilla__server-down,
 .peliculasGrilla__server-error {
-    display: flex;                  /* Esta Propiedad */
-    flex-direction: column;
-    justify-content: center;        /* Esta Propiedad */
-    align-items: center;            /* Esta Propiedad */
-    gap: 3rem;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
 }
 
 .peliculasGrilla__loading-img{
     height: 5rem;
     width: 5rem;
-    margin-bottom: 3rem;
-}
-
-.peliculasGrilla__spinnerContainer{
-    display: flex;
-    gap: 1rem;
 }
 
 .peliculasGrilla__server-down-img{

@@ -7,34 +7,22 @@ export const Footer = () => {
 
   return (
 
-    <footer>
-      <div className="app_container footer__container">
+    <div className="footer__container">
         
-          <nav className="footerNavbar">
-            <ul>
-              <li><Link to="/tendenciaDiaria">Tendencia Hoy</Link></li>
-              <li><Link to="/tendenciaSemanal">Tendencia Semanal</Link></li>
-              <li><Link to="/cartelera">En Cartelera</Link></li>
-              <li><Link to="/estrenos">Proximos Estrenos</Link></li>
-              <li><Link to="/topRankin">Mejores Puntuadas</Link></li>
-            </ul>
-          </nav>
+   
 
-      </div>
-    </footer>
+        <ul className="footer__navbar">
+            
+            {/* Menues OPCIONALES, agregar o quitar los necesarios */}
 
-    // <footer className="footer">
-    //   <div className="app_container footer__container">
-    //     <nav className="footer__nav shift">
-    //       <ul className="footer__ul">
-    //         <li className="footer__li"><Link to="/tendenciaDiaria" className="footer__link">Tendencia Hoy</Link></li>
-    //         <li className="footer__li"><Link to="/tendenciaSemanal" className="footer__link">Tendencia Semanal</Link></li>
-    //         <li className="footer__li"><Link to="/cartelera" className="footer__link">En Cartelera</Link></li>
-    //         <li className="footer__li"><Link to="/estrenos" className="footer__link">Proximos Estrenos</Link></li>
-    //         <li className="footer__li"><Link to="/topRankin" className="footer__link">Mejores Puntuadas</Link></li>
-    //       </ul>
-    //     </nav>
-    //   </div>
-    // </footer>
+            <Link to="/tendenciaDiaria"><li className="footer__navbar_button">Tendencia Hoy</li></Link>
+            <Link to="/tendenciaSemanal"><li className="footer__navbar_button">Tendencia Semanal</li></Link>
+            <Link to="/cartelera"><li className="footer__navbar_button">En Cartelera</li></Link>
+            <Link to="/estrenos"><li className="footer__navbar_button">Proximos Estrenos</li></Link>
+            <Link to="/topRankin"><li className="footer__navbar_button">Mejores Puntuadas</li></Link>
+
+        </ul>
+
+    </div>
   )
 }

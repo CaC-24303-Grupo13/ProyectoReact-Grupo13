@@ -1,6 +1,7 @@
 
 import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom"
+
+
 
 import { addToFavorites, removeFromFavorites } from '../../utils/getFavorites';    //  Importamos la funcion creada en el Helper o almacenador de funciones de favoritos
 import { db, auth } from "../../utils/firebaseCredentials";   //  Importamos la instancia del servicio incializado con getAuth y guardado en la constante auth
@@ -9,6 +10,7 @@ import { useState } from 'react';
 
 
 export const PeliculasCard = ({cardItemData, cardItemDataFavoriteStatus}) => {
+
 
   const [isFavorite, setIsFavorite] = useState(cardItemDataFavoriteStatus)
 
@@ -32,24 +34,27 @@ export const PeliculasCard = ({cardItemData, cardItemDataFavoriteStatus}) => {
 
 
   return (
-     
-      <Link to={`/detallepelicula/${cardItemData.id}`} >
-        <article className="card bg-dark peliculasCard__container">
-          <figure className="card-img-top peliculasCard__poster">
-            {cardItemData.poster_path != null
-                ? <img className="peliculasCard__poster-img" src={`https://image.tmdb.org/t/p/w500${cardItemData.poster_path}`} alt={`Poster ${cardItemData.title}`}/>
-                : <img className="peliculasCard__poster-img" src={`/images/emptyPoster.svg`} alt="Poster no encontrado"/>
-            }
-          </figure>
-          <figcaption className="card-body peliculasCard_textoLight card-text">
-              <h3>{cardItemData.title}</h3>
-              <p>Puntuacion: {(cardItemData.vote_average).toFixed(1)}</p>
-          </figcaption>
-          {isFavorite == true   ?<iconify-icon onClick={(event) => removeFavoriteClickHandler(event, cardItemData.id)} icon="streamline:heart-solid" class="peliculasCard__Favorite favoriteTrue"></iconify-icon>
-                                :<iconify-icon onClick={(event) => addFavoriteClickHandler(event, cardItemData.id)} icon="streamline:heart" class="peliculasCard__Favorite favoriteFalse"></iconify-icon>
-          }
-        </article>
-      </Link>
+
+    
+
+      <Card bg="dark" key="dark" >
+        
+        
+        <Card.Img variant="top" src={cardItemData.poster_path != null
+            ? `https://image.tmdb.org/t/p/w500${cardItemData.poster_path}`
+            : `/images/emptyPoster.svg`} />
+        <Card.Body>
+          <Card.Text className='peliculasCard_textoLight'>
+            <h3>{cardItemData.title}</h3>
+            <p>Puntuacion: {(cardItemData.vote_average).toFixed(1)}</p>
+          <div className='peliculasCard_textoLight'>
+              {isFavorite == true   ?<iconify-icon onClick={(event) => removeFavoriteClickHandler(event, cardItemData.id)} style={{fontSize: "2rem", color: "crimson"}} icon="streamline:heart-solid"></iconify-icon>
+                                    :<iconify-icon onClick={(event) => addFavoriteClickHandler(event, cardItemData.id)} style={{fontSize: "2rem"}} icon="streamline:heart"></iconify-icon>
+              }
+            </div>
+          </Card.Text>
+        </Card.Body>
+      </Card> 
 
   )
 

@@ -122,10 +122,8 @@ export const Register = () => {
                     <br />
                     <input type="password" name="repitecontrasena" id="repitecontrasena" className="register__input" required></input>
                 </div>
-                
-                <div className="register__btn">
-                    <button type="submit" className="register__submit">Registrarme</button>
-                </div>
+                <div></div>
+                <button type="submit" className="register__submit">Registrarme</button>
             </form>
         </div> 
 

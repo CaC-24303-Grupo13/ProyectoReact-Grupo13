@@ -1,17 +1,17 @@
 /*MODIFICACIONES SWEET ALERT 2*/
 import Swal from 'sweetalert2';
-//import "../../public/css/partials/alerts.css"
+// import "../../public/css/partials/alerts.css"            (Este no se importa aqui, va en el "index.css")
 
 //Iconos utilizables: "info", "error"
 
 class SweetAlertConfig {
-    static alertaCheck(text1, text2){
+    static alertaCheck(text1){
         return Swal.fire({
            
             position: "center",                
             icon: "success",
             title: text1,
-            text: text2,        
+                  
             showConfirmButton: false,
             timer: 4000,
             customClass :{                   

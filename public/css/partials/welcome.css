@@ -1,62 +1,20 @@
 
 /* Desarrollo de estilos para el Componente Welcome */
-
-.welcome__main{
-    flex-grow: 1;                   /* Esta Propiedad */
-    width: 100%;
-
-    display: flex;                  /* Esta Propiedad */
-    flex-direction: column;         /* Esta Propiedad */
-}
-
-.welcome_titulo{  
-    font-size: 3.6rem;
-    color: #d6d6d6;
-    padding-left: 3rem;
-    margin: 1rem 0 1.5rem;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.welcome_subtitulo{
-    font-size: 1.6rem;
-    color: #d6d6d6;
-    padding-left: 6rem;
-    margin: 1rem 0 1.5rem;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.recomendadas__container{
-    display: flex;
-    flex-direction: column;
+.welcome__container {
     border-radius: 10px;
     background-color: rgba(0, 0, 139, 0.3);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    margin: 3rem; 
-    padding: 1rem; 
-    color: #d6d6d6; 
+    max-width: 90%;
+    min-width: 200px;
+    width: auto;
+    margin: auto;
+    padding: 1rem;
+    color: white;
     border: solid 2px rgb(241, 151, 7);
+    overflow: auto;
+    
 }
 
-.recomendadas_subtitulo{
-    text-align: center;
-    font-size: 1.5rem;
-   }
-
-.recomendados__MoviesContainer {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.card {
-    width: 150px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-    width: 100%;
-    height: auto;
+.welcome__container_subtitulo{
+ text-align: center;
 }

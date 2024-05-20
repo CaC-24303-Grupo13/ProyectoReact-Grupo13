@@ -7,7 +7,8 @@ export const DetailsPage = () => {
   return (
 
       <div  className="detailsPage__container">
-        
+
+
           <Header></Header>
           
           <PeliculasDetalle></PeliculasDetalle>

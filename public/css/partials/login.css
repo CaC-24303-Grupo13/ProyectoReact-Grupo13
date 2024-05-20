@@ -34,9 +34,8 @@
 
 .login__register-link{
     display: flex;
-    gap: 3rem;
+    gap: .5rem;
     align-items: center;
-    justify-content: center;
 }
 
 

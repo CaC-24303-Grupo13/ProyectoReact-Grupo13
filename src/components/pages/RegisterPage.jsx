@@ -9,7 +9,6 @@ export const RegisterPage = () => {
       <div  className="registerPage__container">
 
 
-        
           <Header></Header>
           
           <Register></Register>

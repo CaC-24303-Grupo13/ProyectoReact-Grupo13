@@ -1,6 +1,6 @@
 
-/* Normalizacion de Estilos General *//*
-*,
+/* Normalizacion de Estilos General */
+
 *::before,
 *::after {
     margin: 0;
@@ -10,13 +10,20 @@
 
 
 html, body {
-    height: 100%;
+    background-image: url(../../images/oled-4k.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    /* width: 100vw; */
 }
+
 html {
     font-family: var(--primary-font);
     /*font-size: 62.5%;*/
     color: var(--dark-color-solid);
 }
+
 
 a {
     font-family: inherit;
@@ -28,9 +35,8 @@ ul, ol {
     list-style-type: none;
 }
 
-.container{
-    height: 100vh;
-    width: 100%;
+.app_container {
+    max-width: 1200px;
     margin: 0 auto; 
 }
 

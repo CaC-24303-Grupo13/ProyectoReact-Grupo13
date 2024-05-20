@@ -1,7 +1,7 @@
 
 /* Desarrollo de estilos para el Componente Grilla de Peliculas */
 
-.peliculasGrilla__main{
+.peliculasFavoritas__main{
     flex-grow: 1;                   /* Esta Propiedad */
     width: 100%;
 
@@ -9,26 +9,26 @@
     flex-direction: column;         /* Esta Propiedad */
 }
 
-.peliculasGrilla__title{
+.peliculasFavoritas__title{
     font-size: 3rem;
     color: #d6d6d6;
     padding-left: 3rem;
     margin: 1rem 0 1.5rem;
 }
 
-.peliculasGrilla__ItemsContainer {
+.peliculasFavoritas__ItemsContainer {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 
     flex-grow: 1;
+    width: 100%;
 }
 
-.peliculasGrilla__loading,
-.peliculasGrilla__server-down,
-.peliculasGrilla__server-error {
+.peliculasFavoritas__loading,
+.peliculasFavoritas__server-down,
+.peliculasFavoritas__server-error {
     display: flex;                  /* Esta Propiedad */
     flex-direction: column;
     justify-content: center;        /* Esta Propiedad */
@@ -36,31 +36,29 @@
     gap: 3rem;
 }
 
-.peliculasGrilla__loading-img{
+.peliculasFavoritas__loading-img{
     height: 5rem;
     width: 5rem;
     margin-bottom: 3rem;
 }
 
-.peliculasGrilla__spinnerContainer{
+.peliculasFavoritas__spinnerContainer{
     display: flex;
     gap: 1rem;
 }
 
-.peliculasGrilla__server-down-img{
+.peliculasFavoritas__server-down-img{
     height: 35rem;
     width: 52rem;
 }
 
-.peliculasGrilla__server-error-img{
+.peliculasFavoritas__server-error-img{
     height: 22rem;
     width: 45rem;
 }
 
-.peliculasGrilla_textoLight {
+.peliculasFavoritas_textoLight {
     color: var(--light-color-900);
-    text-align: center;
-
 }
 
 

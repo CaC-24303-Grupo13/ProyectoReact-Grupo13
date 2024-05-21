@@ -51,50 +51,50 @@ const handlerGoToClick = (event) => {
             
             <button className="paginador__navButtonIcon" 
                     value={1}
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} 
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} 
                     title="Primer Pagina">
                     {<iconify-icon icon="fluent:arrow-previous-12-filled"></iconify-icon>}
                 </button>
             <button className="paginador__navButtonIcon" 
                     value={paginaActual - 1}
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} 
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} 
                     title="Pagina Anterior">
                     {<iconify-icon icon="fluent:chevron-left-12-filled"></iconify-icon>}
                 </button>
             <button className="paginador__navButtonNumber" 
                     value={buttonNumers[0]}
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} >
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} >
                     {buttonNumers[0]}
                 </button>
             <button className="paginador__navButtonNumber" 
                     value={buttonNumers[1]} 
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} >
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} >
                     {buttonNumers[1]}
                 </button>
             <button className="paginador__navButtonNumber" 
                     value={buttonNumers[2]} 
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} >
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} >
                     {buttonNumers[2]}
                 </button>
             <button className="paginador__navButtonNumber" 
                     value={buttonNumers[3]} 
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} >
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} >
                     {buttonNumers[3]}
                 </button>
             <button className="paginador__navButtonNumber" 
                     value={buttonNumers[4]} 
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} >
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} >
                     {buttonNumers[4]}
                 </button>
             <button className="paginador__navButtonIcon" 
                     value={paginaActual + 1} 
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} 
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} 
                     title="Pagina Siguiente">
                     {<iconify-icon icon="fluent:chevron-right-12-filled"></iconify-icon>}
                 </button>
             <button className="paginador__navButtonIcon" 
                     value={dataTotalPages} 
-                    onClick={(event) => handlerNavigationClicks(event.target.value)} 
+                    onClick={(event) => handlerNavigationClicks(event.currentTarget.value)} 
                     title="Ultima Pagina">
                     {<iconify-icon icon="fluent:arrow-next-12-filled"></iconify-icon>}
                 </button>

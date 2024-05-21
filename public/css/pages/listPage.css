@@ -2,28 +2,7 @@
 /* Desarrollo de estilos para la vista de la Home */
 
 .listPage__container{
-    background-image: url(../../images/oled-4k.jpg);
-    padding: 0 1rem 1rem 1rem;
-
-    
-}
-
-
-.listPage__container_buscador{   
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    overflow: auto;
-    padding: 0 20px;
-    margin-bottom: 20px;
-   
-    
-}
-
-.listPage__container_buscador input{
-    width: 100%; 
-    max-width: 200px; 
-    min-width: 50px;
-   
-    border-radius: 5px;
-    border: none;
-
+    display: flex;                  /* Esta Propiedad */
+    flex-direction: column;         /* Esta Propiedad */
+    min-height: 100vh;              /* Esta Propiedad */
 }

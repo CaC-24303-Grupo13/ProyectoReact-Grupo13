@@ -50,7 +50,7 @@ export const Buscador = () => {
   return (
     
     
-    <div className="buscador__container">
+    <div className="app_container buscador__container">
 
         {/* SPAN que aparecera condicionalmente cuando el usuario este LOGEADO, sino no se ve */}
         {/* <span style={{fontSize: '.8rem', color: 'coral'}}>Magenta: Componente Buscador</span> */}
@@ -58,8 +58,8 @@ export const Buscador = () => {
         {/* Al presionar submit se invoca la funcion "onSubmitSearchForm" dandole como argumento el evento capturado (ir a Linea 44) */}
         <form className="buscador__form" onSubmit={(event) => onSubmitSearchForm(event)}>
             
-            <input type="text" name="searchInput" onChange={(event) => onInputSearchChange(event)} value={searchInput} required/>
-            <button type="submit">Buscar</button>
+            <input className="buscador__SearchInput" type="text" name="searchInput" placeholder="Buscar . . ." onChange={(event) => onInputSearchChange(event)} value={searchInput} required/>
+            {/* <button className="buscador__SearchButton" type="submit">Buscar</button> */}
             
         </form>
 
